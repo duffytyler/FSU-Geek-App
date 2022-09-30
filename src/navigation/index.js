@@ -32,8 +32,9 @@ const Navigation = () => {
 
 setGlobalStyles.containerStyles=
 {
-
-      borderWidth:5,
+        width: '85%',
+        maxWidth:450,
+        borderWidth:5,
         paddingHorizontal: 5,
         backgroundColor: '#d4d4d4',
         borderColor: '#d4d4d4',

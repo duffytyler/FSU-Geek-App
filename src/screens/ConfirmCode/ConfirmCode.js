@@ -1,10 +1,10 @@
-import { View, Text, StyleSheet, ImageBackground } from 'react-native'
-import {React, useState} from 'react'
+import { View, StyleSheet, ImageBackground } from 'react-native'
+import {React} from 'react'
 import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import Background from '../../../assets/images/Home_Screen.jpg';
 import Titles from '../../components/Titles/Titles';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { useForm } from 'react-hook-form'
 const ConfirmCode = () => {
     const {control, handleSubmit} = useForm();
@@ -21,6 +21,8 @@ const ConfirmCode = () => {
         navigation.navigate('Login');
         
       }
+const route = useRoute();
+console.warn(route.name)
     return (
     <ImageBackground source= {Background} resizeMode = "cover" style = {{width:"100%", height:"100%"}}>
      <View style= {styles.container}>

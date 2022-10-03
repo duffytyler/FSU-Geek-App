@@ -4,7 +4,7 @@ import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import Background from '../../../assets/images/Home_Screen.jpg';
 import Titles from '../../components/Titles/Titles';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation} from '@react-navigation/native';
 import { useForm } from 'react-hook-form'
 const CreateAccount = () => {
   const {control, handleSubmit, watch} = useForm();
@@ -16,6 +16,9 @@ const CreateAccount = () => {
   const onCreateAcc = () => {
     console.warn("Create Account");
     navigation.navigate('ConfirmationCode');
+  }
+  const backToLogin = () => {
+    navigation.navigate('Login');
   }
   const onTOS = () => {
     console.warn("TOS");
@@ -54,6 +57,7 @@ const CreateAccount = () => {
       rules ={{required: "Password is required", minLength: 
       {value:7, 
         message:"Password does not meet length requirement (7)"}}}
+      isPassword
       control={control}
       />
 
@@ -65,11 +69,13 @@ const CreateAccount = () => {
         message:"Password does not meet length requirement (7)"},
         validate: value => value == pwd  || 'Passwords do not match'
       }}
+      isPassword
       control={control}
       />
 
       <Text style={{color:'white', paddingTop:15, paddingBottom: 30}}>I accept the{' '} <Text style={styles.link} onPress={onTOS}>Terms of Use</Text></Text>
       <CustomButton onPress={handleSubmit(onCreateAcc)} text = "CREATE ACCOUNT"/>
+      <CustomButton type = "TERTIARY" onPress={backToLogin} text = "Back to sign in"/>
     </View>
     </ScrollView>
     </ImageBackground>

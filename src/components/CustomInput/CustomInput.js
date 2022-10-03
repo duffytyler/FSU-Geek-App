@@ -21,7 +21,10 @@ const CustomInput = ({
                 rules={rules}
                 render= {({field: {value, onChange, onBlur}, fieldState: {error}}) =>
                 <>
-                <View style={[styles.container, {marginBottom: error ? 5 : 30}, {borderColor: error ? 'red' : '#d4d4d4',}]}>
+                {error && (
+                    <Text style={{color:'red', alignSelf:'stretch', paddingLeft: '8%'}}>{error.message || 'Error'}</Text>
+                 )}
+                <View style={[styles.container, {marginBottom: error ? 2 : 30}, {borderColor: error ? 'red' : '#d4d4d4',}]}>
                     <FloatingLabelInput 
                     value = {value} 
                     onChangeText = {onChange}  
@@ -38,9 +41,7 @@ const CustomInput = ({
                     }}
                     />  
                  </View>
-                    {error && (
-                    <Text style={{color:'red', alignSelf:'stretch', paddingLeft: '8%'}}>{error.message || 'Error'}</Text>
-                 )}
+                    
                  </>
                 }
                 />

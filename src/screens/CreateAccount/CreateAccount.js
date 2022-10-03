@@ -15,7 +15,7 @@ const CreateAccount = () => {
   const navigation = useNavigation();
   const onCreateAcc = () => {
     console.warn("Create Account");
-    navigation.navigate('ConfirmationCode');
+    navigation.navigate('CreationCode');
   }
   const backToLogin = () => {
     navigation.navigate('Login');

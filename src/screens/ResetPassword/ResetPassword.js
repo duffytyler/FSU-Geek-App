@@ -1,5 +1,5 @@
-import { View, Text, StyleSheet, ImageBackground } from 'react-native'
-import {React, useState} from 'react'
+import { View, StyleSheet, ImageBackground } from 'react-native'
+import {React} from 'react'
 import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import Background from '../../../assets/images/Home_Screen.jpg';
@@ -24,14 +24,17 @@ const ResetPassword = () => {
     <ImageBackground source= {Background} resizeMode = "cover" style = {{width:"100%", height:"100%"}}>
      <View style= {styles.container}>
       <Titles text = "Reset Password" />
+
       <CustomInput 
       name="password"
-      placeholder="NEW PASSWORD"
+      placeholder="PASSWORD"
       rules ={{required: "Password is required", minLength: 
       {value:7, 
         message:"Password does not meet length requirement (7)"}}}
+      isPassword
       control={control}
       />
+      
      <CustomInput 
       name="vpassword"
       placeholder="RE-ENTER PASSWORD"
@@ -40,6 +43,8 @@ const ResetPassword = () => {
         message:"Password does not meet length requirement (7)"},
         validate: value => value == pwd  || 'Passwords do not match'
       }}
+      isPassword
+      control={control}
       />
       <CustomButton onPress={handleSubmit(onSubmit)} text = "SUBMIT"/>
       <CustomButton onPress={backToLogin} text = "Back to sign in" type = "TERTIARY" />

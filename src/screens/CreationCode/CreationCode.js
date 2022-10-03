@@ -7,15 +7,16 @@ import Titles from '../../components/Titles/Titles';
 import { useNavigation} from '@react-navigation/native';
 import { useForm } from 'react-hook-form'
 
-const ConfirmCode = () => {
+const CreationCode = () => {
     const {control, handleSubmit} = useForm();
     const navigation = useNavigation();
     const EMAIL_REGEX =
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     const onSubmit = () => {
-      console.warn("Reset password");
-      navigation.navigate('ResetPassword');
-    }
+        console.warn("Submitted");
+        //validate
+        navigation.navigate('Login');
+      }
       const backToLogin = () => {
         console.warn("Go back to login");
         navigation.navigate('Login');
@@ -31,7 +32,7 @@ const ConfirmCode = () => {
       rules ={{required: "Email is required", pattern:EMAIL_REGEX}}
       control={control}
       />
-      
+
       <CustomInput 
       name="ccode"
       placeholder="CONFIRMATION CODE"
@@ -53,4 +54,4 @@ const styles = StyleSheet.create({
       },
 })
 
-export default ConfirmCode
+export default CreationCode

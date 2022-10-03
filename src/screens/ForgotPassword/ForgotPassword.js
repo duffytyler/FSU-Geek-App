@@ -13,7 +13,7 @@ const ForgotPassword = () => {
     const navigation = useNavigation();
     const onSubmit = () => {
         console.warn("Submitted");
-        navigation.navigate('ConfirmCode');
+        navigation.navigate('ConfirmationCode');
       }
       const backToLogin = () => {
         console.warn("Go back to login");

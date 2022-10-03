@@ -30,6 +30,7 @@ const CustomInput = ({
                     onChangeText = {onChange}  
                     label={placeholder} 
                     isPassword={isPassword}
+                    autoCapitalize = 'none'
                     containerStyles={{
                         width: '85%',
                         maxWidth:450,

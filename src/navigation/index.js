@@ -8,6 +8,7 @@ import CreateAccount from '../screens/CreateAccount/CreateAccount';
 import ForgotPassword from '../screens/ForgotPassword/ForgotPassword';
 import ResetPassword from '../screens/ResetPassword/ResetPassword';
 import ConfirmationCode from '../screens/ConfirmCode/ConfirmCode';
+import CreationCode from '../screens/CreationCode/CreationCode';
 import Career from '../screens/Career';
 import Advising from '../screens/Advising';
 import Scholarships from '../screens/Scholarships';
@@ -27,6 +28,7 @@ const Navigation = () => {
             <Stack.Screen name="CreateAccount" component={CreateAccount} />
             <Stack.Screen name="News" component={News} />
             <Stack.Screen name="ConfirmationCode" component={ConfirmationCode} />
+            <Stack.Screen name="CreationCode" component={CreationCode} />
         </Stack.Navigator>
     </NavigationContainer>
   )

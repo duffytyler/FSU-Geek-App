@@ -7,6 +7,7 @@ import Login from '../screens/Login/Login';
 import CreateAccount from '../screens/CreateAccount/CreateAccount';
 import ForgotPassword from '../screens/ForgotPassword/ForgotPassword';
 import ResetPassword from '../screens/ResetPassword/ResetPassword';
+import ConfirmationCode from '../screens/ConfirmCode/ConfirmCode';
 import Career from '../screens/Career';
 import Advising from '../screens/Advising';
 import Scholarships from '../screens/Scholarships';
@@ -25,6 +26,7 @@ const Navigation = () => {
             <Stack.Screen name="ResetPassword" component={ResetPassword} />
             <Stack.Screen name="CreateAccount" component={CreateAccount} />
             <Stack.Screen name="News" component={News} />
+            <Stack.Screen name="ConfirmationCode" component={ConfirmationCode} />
         </Stack.Navigator>
     </NavigationContainer>
   )
@@ -39,6 +41,7 @@ setGlobalStyles.containerStyles=
         backgroundColor: '#d4d4d4',
         borderColor: '#d4d4d4',
         borderRadius: 8,
+        height:65,
 }
 setGlobalStyles.labelStyles=
 {

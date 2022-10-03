@@ -5,17 +5,17 @@ import CustomButton from '../../components/CustomButton/CustomButton';
 import Background from '../../../assets/images/Home_Screen.jpg';
 import Titles from '../../components/Titles/Titles';
 import { useNavigation } from '@react-navigation/native';
+import { useForm } from 'react-hook-form'
 const CreateAccount = () => {
-  const [email,setEmail] = useState('');
-  const [password,setPassword] = useState('');
-  const [fname,setFName] = useState('');
-  const [lname,setLName] = useState('');
-  const [vpassword, setvPassword] = useState('');
+  const {control, handleSubmit, watch} = useForm();
+  const pwd = watch('password');
+  const EMAIL_REGEX =
+  /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   const [toggleCheckBox, setToggleCheckBox] = useState(false)
   const navigation = useNavigation();
   const onCreateAcc = () => {
     console.warn("Create Account");
-    navigation.navigate('Login');
+    navigation.navigate('ConfirmationCode');
   }
   const onTOS = () => {
     console.warn("TOS");
@@ -26,35 +26,50 @@ const CreateAccount = () => {
     <ScrollView showsVerticalScrollIndicator={false}>
     <View style={styles.container}>
       <Titles text = "Create Account" />
-      <CustomInput
+      
+      <CustomInput 
+      name="first_name"
       placeholder="FIRST NAME"
-      value={fname}
-      setValue={setFName}
+      rules ={{required: "First name is required"}}
+      control={control}
       />
-      <CustomInput
+
+      <CustomInput 
+      name="last_name"
       placeholder="LAST NAME"
-      value={lname}
-      setValue={setLName}
+      rules ={{required: "Last name is required"}}
+      control={control}
       />
-      <CustomInput
+
+      <CustomInput 
+      name="email"
       placeholder="EMAIL"
-      value={email}
-      setValue={setEmail}
+      rules ={{required: "Email is required", pattern:EMAIL_REGEX}}
+      control={control}
       />
-      <CustomInput
+
+      <CustomInput 
+      name="password"
       placeholder="PASSWORD"
-      value={password}
-      setValue={setPassword}
-      isPassword={true}
+      rules ={{required: "Password is required", minLength: 
+      {value:7, 
+        message:"Password does not meet length requirement (7)"}}}
+      control={control}
       />
-      <CustomInput
+
+      <CustomInput 
+      name="vpassword"
       placeholder="RE-ENTER PASSWORD"
-      value={vpassword}
-      setValue={setvPassword}
-      isPassword={true}
+      rules ={{required: "Password is required", minLength: 
+      {value:7, 
+        message:"Password does not meet length requirement (7)"},
+        validate: value => value == pwd  || 'Passwords do not match'
+      }}
+      control={control}
       />
-      <Text style={{color:'white', paddingBottom: 30}}>I accept the{' '} <Text style={styles.link} onPress={onTOS}>Terms of Use</Text></Text>
-      <CustomButton onPress={onCreateAcc} text = "CREATE ACCOUNT"/>
+
+      <Text style={{color:'white', paddingTop:15, paddingBottom: 30}}>I accept the{' '} <Text style={styles.link} onPress={onTOS}>Terms of Use</Text></Text>
+      <CustomButton onPress={handleSubmit(onCreateAcc)} text = "CREATE ACCOUNT"/>
     </View>
     </ScrollView>
     </ImageBackground>

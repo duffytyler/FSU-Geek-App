@@ -14,10 +14,12 @@ import Scholarships from './src/screens/Scholarships';
 import AMC from './src/screens/AMC';
 import Discord from './src/screens/Discord';
 import Navigation from './src/navigation/index';
-
+import { Amplify } from 'aws-amplify'
+import awsconfig from './src/aws-exports'
+Amplify.configure(awsconfig)
 const Stack = createNativeStackNavigator();
 
-export default function App() {
+const App = () => {
   let [fontsLoaded] = useFonts({
     'imprintMTS': require('./assets/fonts/Imprint_MT_Shadow.ttf'),
     'MontserratM': require('./assets/fonts/Montserrat-Medium.ttf'),
@@ -31,3 +33,6 @@ export default function App() {
       <Navigation />
   );
 }
+
+
+export default App;

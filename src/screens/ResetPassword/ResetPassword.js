@@ -5,11 +5,11 @@ import CustomButton from '../../components/CustomButton/CustomButton';
 import Background from '../../../assets/images/Home_Screen.jpg';
 import Titles from '../../components/Titles/Titles';
 import { useNavigation } from '@react-navigation/native';
-
+import { useForm } from 'react-hook-form'
 const ResetPassword = () => {
-    const [code,setCode] = useState('');
-    const [password,setPassword] = useState('');
+  const {control, handleSubmit, watch} = useForm();
     const navigation = useNavigation();
+    const pwd = watch('password');
     const onSubmit = () => {
         console.warn("Submitted");
         //validate
@@ -24,18 +24,24 @@ const ResetPassword = () => {
     <ImageBackground source= {Background} resizeMode = "cover" style = {{width:"100%", height:"100%"}}>
      <View style= {styles.container}>
       <Titles text = "Reset Password" />
-      <CustomInput
-      placeholder="CONFIRMATION CODE"
-      value={code}
-      setValue={setCode}
+      <CustomInput 
+      name="password"
+      placeholder="NEW PASSWORD"
+      rules ={{required: "Password is required", minLength: 
+      {value:7, 
+        message:"Password does not meet length requirement (7)"}}}
+      control={control}
       />
-      <CustomInput
-      placeholder="*NEW PASSWORD*"
-      value={password}
-      setValue={setPassword}
-      isPassword = 'true'
+     <CustomInput 
+      name="vpassword"
+      placeholder="RE-ENTER PASSWORD"
+      rules ={{required: "Password is required", minLength: 
+      {value:7, 
+        message:"Password does not meet length requirement (7)"},
+        validate: value => value == pwd  || 'Passwords do not match'
+      }}
       />
-      <CustomButton onPress={onSubmit} text = "SUBMIT"/>
+      <CustomButton onPress={handleSubmit(onSubmit)} text = "SUBMIT"/>
       <CustomButton onPress={backToLogin} text = "Back to sign in" type = "TERTIARY" />
     </View>
     </ImageBackground>

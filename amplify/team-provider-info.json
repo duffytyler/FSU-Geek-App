@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-fsugeekapp-staging-214536-authRole",
+      "UnauthRoleArn": "arn:aws:iam::421855161685:role/amplify-fsugeekapp-staging-214536-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::421855161685:role/amplify-fsugeekapp-staging-214536-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-fsugeekapp-staging-214536-deployment",
+      "UnauthRoleName": "amplify-fsugeekapp-staging-214536-unauthRole",
+      "StackName": "amplify-fsugeekapp-staging-214536",
+      "StackId": "arn:aws:cloudformation:us-east-1:421855161685:stack/amplify-fsugeekapp-staging-214536/8d0284b0-429b-11ed-9887-0eb52f930171",
+      "AmplifyAppId": "dvqf1ovpq5gg8"
+    },
+    "categories": {
+      "auth": {
+        "FSUGeekApp": {}
+      }
+    }
+  }
+}

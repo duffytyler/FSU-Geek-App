@@ -1,19 +1,42 @@
 import React,{useState} from 'react';
-import { View,Text,ImageBackground,Image, StyleSheet, useWindowDimensions, ScrollView} from 'react-native';
+import { View,Text,ImageBackground,Image, StyleSheet, useWindowDimensions, Alert, ScrollView} from 'react-native';
 import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import Background from '../../../assets/images/Home_Screen.jpg';
 import Logo from '../../../assets/images/logo.png';
 import { useNavigation } from '@react-navigation/native';
+import { Auth } from 'aws-amplify';
+import { useForm } from 'react-hook-form'
 const Login = () => {
-  const [email,setEmail] = useState('');
-  const [password,setPassword] = useState('');
   const {height} = useWindowDimensions();
   const navigation = useNavigation();
-  const onSignIn = () => {
-    console.warn("Sign in");
+  const{
+    control,
+    handleSubmit,
+    formState: {errors}
+  } = useForm();
+
+  console.log(errors);
+
+  const [loading,setLoading] = useState(false);
+  const onSignIn = async (data) => {
+   if(loading) {
+    return;
+   }
+
+   setLoading(true);
+   try{
+    const response = await Auth.signIn(data.email, data.password);
+    console.log(response);
+    //console.warn("Sign in");
     //validate user
-    navigation.navigate('News');
+    //navigation.navigate('News');
+   } catch(e)
+   {
+      Alert.alert('Invalid Username and/or Password!', e.message);
+   }
+   setLoading(false);
+  
   }
   const onForgot = () => {
     console.warn("Forgot password");
@@ -33,19 +56,22 @@ const Login = () => {
     <View style={styles.container}>
       <Image source = {Logo} style={[styles.logo, {height: height *0.3}]} resizeMode ="contain"/>
       <Text style={styles.plaintext}>FSU GEEK</Text>
+      
       <CustomInput 
-      value={email} 
-      setValue={setEmail} 
-      placeholder="EMAIL"/>
-
-      <CustomInput
-      placeholder="PASSWORD"
-      value={password}
-      setValue={setPassword}
-      isPassword = {true}
+      name="email"
+      placeholder="EMAIL"
+      rules ={{required: "Email is required"}}
+      control={control}
       />
 
-      <CustomButton onPress={onSignIn} text = "SIGN IN"/>
+      <CustomInput
+      name = "password"
+      placeholder="PASSWORD"
+      control = {control}
+      rules={{required: "Password is required"}}
+      isPassword = {true}
+      />
+      <CustomButton onPress={handleSubmit(onSignIn)} text = {loading ? "Loading..." : "SIGN IN"}/>
       <CustomButton type = "TERTIARY" onPress={onForgot} text = "Forgot Password?" />
       <CustomButton type = "TERTIARY" onPress={onNewAcc} text = "Don't have an account? Sign Up" />
     </View>

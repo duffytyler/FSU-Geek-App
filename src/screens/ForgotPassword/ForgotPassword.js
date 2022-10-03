@@ -5,12 +5,15 @@ import CustomButton from '../../components/CustomButton/CustomButton';
 import Background from '../../../assets/images/Home_Screen.jpg';
 import Titles from '../../components/Titles/Titles';
 import { useNavigation } from '@react-navigation/native';
+import { useForm } from 'react-hook-form'
 const ForgotPassword = () => {
-    const [email,setEmail] = useState('');
+    const {control, handleSubmit} = useForm();
+    const EMAIL_REGEX =
+  /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     const navigation = useNavigation();
     const onSubmit = () => {
         console.warn("Submitted");
-        navigation.navigate('ResetPassword');
+        navigation.navigate('ConfirmCode');
       }
       const backToLogin = () => {
         console.warn("Go back to login");
@@ -20,12 +23,13 @@ const ForgotPassword = () => {
     <ImageBackground source= {Background} resizeMode = "cover" style = {{width:"100%", height:"100%"}}>
     <View style= {styles.container}>
       <Titles text = "Forgot Password" />
-      <CustomInput
+      <CustomInput 
+      name="email"
       placeholder="EMAIL"
-      value={email}
-      setValue = {setEmail}
+      rules ={{required: "Email is required", pattern:EMAIL_REGEX}}
+      control={control}
       />
-      <CustomButton onPress={onSubmit} text = "SUBMIT"/>
+      <CustomButton onPress={handleSubmit(onSubmit)} text = "SUBMIT"/>
       <CustomButton onPress={backToLogin} text = "Back to sign in" type = "TERTIARY" />
     </View>
     </ImageBackground>

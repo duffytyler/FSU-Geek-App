@@ -3,6 +3,7 @@ import { Text, View, StyleSheet , Dimensions} from 'react-native'
 import { FloatingLabelInput } from 'react-native-floating-label-input';
 import { Controller } from 'react-hook-form'
 const entireScreenWidth = Dimensions.get('window').width;
+var screenWidth = entireScreenWidth
 if (entireScreenWidth >= 700)
 {
   screenWidth = 525;
@@ -19,10 +20,12 @@ const CustomInput = ({
                 control = {control}
                 name = {name}
                 rules={rules}
-                render= {({field: {value, onChange, onBlur}, fieldState: {error}}) =>
+                render= {({field: {value, onChange}, fieldState: {error}}) =>
                 <>
                 {error && (
-                    <Text style={{color:'red', alignSelf:'stretch', paddingLeft: '8%'}}>{error.message || 'Error'}</Text>
+                    <View style={{width:screenWidth}}>
+                    <Text style={styles.error}>{error.message || 'Error'}</Text>
+                    </View>
                  )}
                 <View style={[styles.container, {marginBottom: error ? 2 : 30}, {borderColor: error ? 'red' : '#d4d4d4',}]}>
                     <FloatingLabelInput 
@@ -64,6 +67,11 @@ const styles = StyleSheet.create({
     },
     input:{
         fontSize:18
+    },
+    error:
+    {
+        marginLeft:'7%',
+        color:'red', 
     },
 
 });

@@ -1,11 +1,12 @@
 import React,{useState} from 'react';
-import { View,Text,ImageBackground, StyleSheet, ScrollView} from 'react-native';
+import { View,Text,ImageBackground, StyleSheet, Alert, ScrollView} from 'react-native';
 import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import Background from '../../../assets/images/Home_Screen.jpg';
 import Titles from '../../components/Titles/Titles';
 import { useNavigation} from '@react-navigation/native';
 import { useForm } from 'react-hook-form'
+import { Auth } from 'aws-amplify';
 const CreateAccount = () => {
   const {control, handleSubmit, watch} = useForm();
   const pwd = watch('password');
@@ -13,9 +14,22 @@ const CreateAccount = () => {
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   const [toggleCheckBox, setToggleCheckBox] = useState(false)
   const navigation = useNavigation();
-  const onCreateAcc = () => {
-    console.warn("Create Account");
-    navigation.navigate('CreationCode');
+  const onCreateAcc = async data => {
+    const {email, password,given_name,family_name} = data; 
+    try
+    {
+      await Auth.signUp(
+        {
+          username: email,
+          password,
+          attributes: {email, given_name, family_name}
+        }
+      );
+      navigation.navigate('ConfirmationCode', {email});
+    }catch(e)
+    {
+      Alert.alert('Oops', e.message);
+    }
   }
   const backToLogin = () => {
     navigation.navigate('Login');
@@ -31,14 +45,14 @@ const CreateAccount = () => {
       <Titles text = "Create Account" />
       
       <CustomInput 
-      name="first_name"
+      name="given_name"
       placeholder="FIRST NAME"
       rules ={{required: "First name is required"}}
       control={control}
       />
 
       <CustomInput 
-      name="last_name"
+      name="family_name"
       placeholder="LAST NAME"
       rules ={{required: "Last name is required"}}
       control={control}

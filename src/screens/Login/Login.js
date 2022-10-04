@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { View,Text,ImageBackground,Image, StyleSheet, useWindowDimensions, Alert, ScrollView} from 'react-native';
+import { View,Text,ImageBackground,Image, useWindowDimensions, StyleSheet, Alert, ScrollView} from 'react-native';
 import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import Background from '../../../assets/images/Home_Screen.jpg';
@@ -8,6 +8,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Auth } from 'aws-amplify';
 import { useForm } from 'react-hook-form'
 const Login = () => {
+  Auth.signOut();
   const {height} = useWindowDimensions();
   const navigation = useNavigation();
   const{
@@ -36,19 +37,17 @@ const Login = () => {
       Alert.alert('Invalid Username and/or Password!', e.message);
    }
    setLoading(false);
-  
-  }
+  };
+
   const onForgot = () => {
     console.warn("Forgot password");
     navigation.navigate('ForgotPassword');
-  }
+  };
+
   const onNewAcc = () => {
     console.warn("Sign up");
     navigation.navigate('CreateAccount');
-  }
-
-  const [show, setShow] = useState(false);
-
+  };
 
   return(
     <ImageBackground source= {Background} resizeMode = "cover" style = {{width:"100%", height:"100%"}}>

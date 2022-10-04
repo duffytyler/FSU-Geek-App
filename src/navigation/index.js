@@ -1,34 +1,72 @@
-import { View, Text } from 'react-native'
+import { View, ActivityIndicator } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import React from 'react';
-import Menu from '../screens/Menu';
+import React, { useEffect, useState } from 'react';
 import Login from '../screens/Login/Login';
 import CreateAccount from '../screens/CreateAccount/CreateAccount';
 import ForgotPassword from '../screens/ForgotPassword/ForgotPassword';
 import ResetPassword from '../screens/ResetPassword/ResetPassword';
 import ConfirmationCode from '../screens/ConfirmCode/ConfirmCode';
-import CreationCode from '../screens/CreationCode/CreationCode';
+import News from '../screens/News/News';
 import Career from '../screens/Career';
 import Advising from '../screens/Advising';
 import Scholarships from '../screens/Scholarships';
 import AMC from '../screens/AMC';
-import Discord from '../screens/Discord';
-import News from '../screens/News/News';
+import Discord from '../screens/Discord'; 
 import '../../globalStyles';
 import { setGlobalStyles } from 'react-native-floating-label-input';
+import { Auth, Hub } from 'aws-amplify';
 const Stack = createNativeStackNavigator();
 const Navigation = () => {
+  const [user, setUser] = useState(undefined);
+
+  const checkUser = async () => {
+    try {
+      const authUser = await Auth.currentAuthenticatedUser({bypassCache: true});
+      setUser(authUser);
+    } catch (e) {
+      setUser(null);
+    }
+  };
+
+  useEffect(() => {
+    checkUser();
+  }, []);
+
+  useEffect(() => {
+    const listener = data => {
+      if (data.payload.event === 'signIn' || data.payload.event === 'signOut') {
+        checkUser();
+      }
+    };
+
+    Hub.listen('auth', listener);
+    return () => Hub.remove('auth', listener);
+  }, []);
+
+  if (user === undefined) {
+    return (
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <ActivityIndicator />
+      </View>
+    );
+  }
+
+
   return (
     <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown:false}}>
+          {user ? (
+              <Stack.Screen name="News" component={News} />
+          ): (
+            <>
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
             <Stack.Screen name="ResetPassword" component={ResetPassword} />
             <Stack.Screen name="CreateAccount" component={CreateAccount} />
-            <Stack.Screen name="News" component={News} />
             <Stack.Screen name="ConfirmationCode" component={ConfirmationCode} />
-            <Stack.Screen name="CreationCode" component={CreationCode} />
+            </>
+          )}
         </Stack.Navigator>
     </NavigationContainer>
   )

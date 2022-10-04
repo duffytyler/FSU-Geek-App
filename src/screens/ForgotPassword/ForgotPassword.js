@@ -11,10 +11,15 @@ const ForgotPassword = () => {
     const EMAIL_REGEX =
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     const navigation = useNavigation();
-    const onSubmit = () => {
-        console.warn("Submitted");
-        navigation.navigate('ConfirmationCode');
+    const onSubmit = async data => {
+      try{
+        await Auth.forgotPassword(data.email);
+        navigation.navigate('ResetPassword');
+      }catch(e)
+      {
+        Alert.alert("Oops", e.message);
       }
+    }
       const backToLogin = () => {
         console.warn("Go back to login");
         navigation.navigate('Login');

@@ -1,4 +1,4 @@
-import { View, StyleSheet, ImageBackground } from 'react-native'
+import { View, StyleSheet, ImageBackground, Alert } from 'react-native'
 import {React} from 'react'
 import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
@@ -6,14 +6,21 @@ import Background from '../../../assets/images/Home_Screen.jpg';
 import Titles from '../../components/Titles/Titles';
 import { useNavigation } from '@react-navigation/native';
 import { useForm } from 'react-hook-form'
+import { Auth } from 'aws-amplify';
 const ResetPassword = () => {
   const {control, handleSubmit, watch} = useForm();
     const navigation = useNavigation();
     const pwd = watch('password');
-    const onSubmit = () => {
-        console.warn("Submitted");
-        //validate
+    const onSubmit = async data => {
+      try
+      {
+        await Auth.forgotPasswordSubmit(data.email ,data.ccode, data.password);
         navigation.navigate('Login');
+      }
+      catch(e)
+      {
+        Alert.alert('Oops', e.message)
+      }
       }
       const backToLogin = () => {
         console.warn("Go back to login");
@@ -24,6 +31,14 @@ const ResetPassword = () => {
     <ImageBackground source= {Background} resizeMode = "cover" style = {{width:"100%", height:"100%"}}>
      <View style= {styles.container}>
       <Titles text = "Reset Password" />
+
+      <CustomInput 
+      name="ccode"
+      placeholder="CONFIRMATION CODE"
+      rules ={{required: "Code is required"}}
+      isPassword
+      control={control}
+      />
 
       <CustomInput 
       name="password"

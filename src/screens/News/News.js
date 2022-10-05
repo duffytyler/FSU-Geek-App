@@ -4,8 +4,6 @@ import { View, StyleSheet, ImageBackground, ScrollView } from 'react-native';
 import CustomButton from '../../components/CustomButton/CustomButton'
 import Background from '../../../assets/images/newsbg.jpg';
 import { Auth } from 'aws-amplify';
-import Header from '../../components/Header/Header';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const News = () => {
     const navigation = useNavigation();
     const onSignOut = () => {

@@ -14,7 +14,7 @@ const ResetPassword = () => {
     const onSubmit = async data => {
       try
       {
-        await Auth.forgotPasswordSubmit(data.email ,data.ccode, data.password);
+        await Auth.forgotPasswordSubmit(data.username ,data.ccode, data.password);
         navigation.navigate('Login');
       }
       catch(e)

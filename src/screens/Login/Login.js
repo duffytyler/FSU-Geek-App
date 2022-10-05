@@ -8,7 +8,6 @@ import { useNavigation } from '@react-navigation/native';
 import { Auth } from 'aws-amplify';
 import { useForm } from 'react-hook-form'
 const Login = () => {
-  Auth.signOut();
   const {height} = useWindowDimensions();
   const navigation = useNavigation();
   const{
@@ -27,14 +26,14 @@ const Login = () => {
 
    setLoading(true);
    try{
-    const response = await Auth.signIn(data.email, data.password);
+    const response = await Auth.signIn(data.username, data.password);
     console.log(response);
     //console.warn("Sign in");
     //validate user
     //navigation.navigate('News');
    } catch(e)
    {
-      Alert.alert('Invalid Username and/or Password!', e.message);
+      Alert.alert('Invalid Email and/or Password!', e.message);
    }
    setLoading(false);
   };
@@ -57,7 +56,7 @@ const Login = () => {
       <Text style={styles.plaintext}>FSU GEEK</Text>
       
       <CustomInput 
-      name="email"
+      name="username"
       placeholder="EMAIL"
       rules ={{required: "Email is required"}}
       control={control}

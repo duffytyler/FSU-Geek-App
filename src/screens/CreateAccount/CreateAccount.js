@@ -15,12 +15,12 @@ const CreateAccount = () => {
   const [toggleCheckBox, setToggleCheckBox] = useState(false)
   const navigation = useNavigation();
   const onCreateAcc = async data => {
-    const {email, password,given_name,family_name} = data; 
+    const {email, username, password,given_name,family_name} = data; 
     try
     {
       await Auth.signUp(
         {
-          username: email,
+          username,
           password,
           attributes: {email, given_name, family_name}
         }
@@ -59,7 +59,7 @@ const CreateAccount = () => {
       />
 
       <CustomInput 
-      name="email"
+      name="username"
       placeholder="EMAIL"
       rules ={{required: "Email is required", pattern:EMAIL_REGEX}}
       control={control}

@@ -57,7 +57,11 @@ const Navigation = () => {
     <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown:false}}>
           {user ? (
-              <Stack.Screen name="News" component={News} />
+              <Stack.Screen name="News" component={News} 
+              options={{
+                title:"FSU GEEK",
+                backgroundColor:'#d4d4d4',
+              }}/>
           ): (
             <>
             <Stack.Screen name="Login" component={Login} />

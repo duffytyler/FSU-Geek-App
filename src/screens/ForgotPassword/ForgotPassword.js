@@ -13,7 +13,7 @@ const ForgotPassword = () => {
     const navigation = useNavigation();
     const onSubmit = async data => {
       try{
-        await Auth.forgotPassword(data.email);
+        await Auth.forgotPassword(data.username);
         navigation.navigate('ResetPassword');
       }catch(e)
       {
@@ -29,7 +29,7 @@ const ForgotPassword = () => {
     <View style= {styles.container}>
       <Titles text = "Forgot Password" />
       <CustomInput 
-      name="email"
+      name="username"
       placeholder="EMAIL"
       rules ={{required: "Email is required", pattern:EMAIL_REGEX}}
       control={control}

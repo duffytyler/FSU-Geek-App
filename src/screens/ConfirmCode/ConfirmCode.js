@@ -11,14 +11,14 @@ const ConfirmCode = () => {
     const route = useRoute();
     const navigation = useNavigation();
     const {control, handleSubmit, watch} = useForm({defaultValues: 
-      {email: route?.params?.email},
+      {username: route?.params?.username},
     });
-    const email = watch('email');
+    const email = watch('username');
     const EMAIL_REGEX =
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   const onSubmit = async data => {
     try{
-      await Auth.confirmSignUp(data.email, data.ccode);
+      await Auth.confirmSignUp(data.username, data.ccode);
       navigation.navigate('Login');
     }catch(e)
     {
@@ -31,7 +31,7 @@ const ConfirmCode = () => {
     }
     const onResend = async () => {
       try{
-        await Auth.resendSignUp(email);
+        await Auth.resendSignUp(username);
         Alert.alert('Succes', 'Code was resent to your email');
       }catch(e)
       {
@@ -43,7 +43,7 @@ const ConfirmCode = () => {
      <View style= {styles.container}>
       <Titles text = "Enter Confirmation Code" />
       <CustomInput 
-      name="email"
+      name="username"
       placeholder="EMAIL"
       rules ={{required: "Email is required", pattern:EMAIL_REGEX}}
       control={control}

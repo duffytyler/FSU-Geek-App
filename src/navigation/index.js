@@ -59,9 +59,13 @@ const Navigation = () => {
           {user ? (
               <Stack.Screen name="News" component={News} 
               options={{
-                title:"FSU GEEK",
-                backgroundColor:'#d4d4d4',
-              }}/>
+                title:'FSU GEEK',
+                headerStyle:{
+                  backgroundColor:'#d4d4d4',
+                  headerShown:true,
+                },
+
+            }}/>
           ): (
             <>
             <Stack.Screen name="Login" component={Login} />

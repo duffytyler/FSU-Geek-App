@@ -72,7 +72,7 @@ const Navigation = ({navigation}) => {
   {
     return (
     <Home.Navigator screenOptions={{headerShown:false}}>
-        <Home.Screen name="Login" options={{headerShown: false}} component={Login} />
+            <Home.Screen name="Login" options={{headerShown: false}} component={Login} />
             <Home.Screen name="ForgotPassword" options={{headerShown: false}} component={ForgotPassword} />
             <Home.Screen name="ResetPassword" options={{headerShown: false}} component={ResetPassword} />
             <Home.Screen name="CreateAccount" options={{headerShown: false}} component={CreateAccount} />
@@ -87,37 +87,7 @@ const Navigation = ({navigation}) => {
           {user ? (
            <Stack.Group>
             <Stack.Screen name="News" component={News} 
-            options={{
-              title:'FSU GEEK',
-              headerStyle:{
-                backgroundColor:'#BEBCBC',
-                headerShown:true,
-              },
-              headerRight: () =>(
-              //need to find a way to go to Menu on press
-                 <Pressable onPress={() => alert('This is a button')}>
-                    <Image source={MenuButton} style={{height:30, width:30 }} />
-                 </Pressable>
-              ),
-              headerTitleStyle:
-              {
-                fontFamily:'imprintMTS',
-                fontSize:30,
-                color:'#fff',
-              },
-            
-            }}/>
-            </Stack.Group>
-          ): (
-          <Stack.Group screenOptions={{headerShown:false}}>
-                <Stack.Screen name="SignIn" component={SignIn} />
-          </Stack.Group>
-          )}
-          <Stack.Group screenOptions={{headerShown:false}}>
-            <Stack.Screen name="Menu" component={Menu} />
-          </Stack.Group>
-          <Stack.Group
-            screenOptions={{
+            options= {({ navigation }) => ({
               headerBackVisible:false,
             title:'FSU GEEK',
             headerStyle:{
@@ -126,7 +96,7 @@ const Navigation = ({navigation}) => {
             },
             headerRight: () =>(
             //need to find a way to go to Menu on press
-               <Pressable onPress={() => alert('This is a button')}>
+               <Pressable onPress={() => navigation.navigate('Menu')}>
                   <Image source={MenuButton} style={{height:30, width:30 }} />
                </Pressable>
             ),
@@ -137,7 +107,39 @@ const Navigation = ({navigation}) => {
               color:'#fff',
             },
           
-          }}>
+          })}/>
+            <Stack.Screen name="Menu" options={{headerShown:false}} component={Menu} />
+            </Stack.Group>
+          ): (
+          <Stack.Group screenOptions={{headerShown:false}}>
+                <Stack.Screen name="SignIn" component={SignIn} />
+          </Stack.Group>
+          )}
+          <Stack.Group screenOptions={{headerShown:false}}>
+            
+          </Stack.Group>
+          <Stack.Group
+            screenOptions= {({ navigation }) => ({
+              headerBackVisible:false,
+            title:'FSU GEEK',
+            headerStyle:{
+              backgroundColor:'#BEBCBC',
+              headerShown:true,
+            },
+            headerRight: () =>(
+            //need to find a way to go to Menu on press
+               <Pressable onPress={() => navigation.navigate('Menu')}>
+                  <Image source={MenuButton} style={{height:30, width:30 }} />
+               </Pressable>
+            ),
+            headerTitleStyle:
+            {
+              fontFamily:'imprintMTS',
+              fontSize:30,
+              color:'#fff',
+            },
+          
+          })}>
             <Stack.Screen name="Pages" component={Pages}/>
 
           </Stack.Group>

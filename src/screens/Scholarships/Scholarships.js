@@ -27,8 +27,6 @@ const navigation = useNavigation();
        contentContainerStyle = {{height:1200}}>
             <SafeAreaView style={styles.container}>
                 <Blocks title = "Article Title" url = "test" description= "test"/> 
-                <CustomButton type = "TERTIARY" onPress={onSignOut} text = "Sign out" />
-                <CustomButton type = "TERTIARY" onPress={onMenu} text = "Menu" />
             </SafeAreaView>
         </ScrollView>
     </View>

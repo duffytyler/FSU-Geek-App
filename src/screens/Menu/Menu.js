@@ -12,9 +12,7 @@ const Menu = () => {
         navigation.navigate('News');
     };
       const onSignOut = () => {
-        navigation.navigate('SignIn', {screen:'Login'});
         Auth.signOut();
-        
     }
     const onMenu = () =>
     {

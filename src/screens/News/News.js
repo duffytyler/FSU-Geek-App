@@ -8,15 +8,6 @@ import Blocks from '../../components/Blocks/Blocks'
 const News = () => {
     
     const navigation = useNavigation();
-    const onSignOut = () => {
-        
-        Auth.signOut();
-        
-    }
-    const onMenu = () => 
-    {
-        navigation.navigate('Menu');
-    }
     return(
     //go to Blocks in components to edit Blocks formatting
     //scrollview height still needs to be fixed
@@ -32,8 +23,6 @@ const News = () => {
                 <Blocks title = "Article Title" url = "test" description= "test" type = "article"/> 
                 <Blocks title = "Article Title" url = "test" description= "test" type = "article"/> 
                 <Blocks title = "Article Title" url = "test" description= "test" type = "article"/> 
-                <CustomButton type = "TERTIARY" onPress={onSignOut} text = "Sign out" />
-                <CustomButton type = "TERTIARY" onPress={onMenu} text = "Menu" />
             </SafeAreaView>
         </ScrollView>
     </View>

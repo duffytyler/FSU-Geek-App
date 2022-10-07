@@ -18,11 +18,11 @@ const News = () => {
        bounces={false}
        contentContainerStyle = {{height:2600}}>
             <SafeAreaView style={styles.container}>
-                <Blocks title = "Article Title" url = "test" description= "test" type = "article"/> 
-                <Blocks title = "Article Title" url = "test" description= "test" type = "article" /> 
-                <Blocks title = "Article Title" url = "test" description= "test" type = "article"/> 
-                <Blocks title = "Article Title" url = "test" description= "test" type = "article"/> 
-                <Blocks title = "Article Title" url = "test" description= "test" type = "article"/> 
+                <Blocks title = "Article Title" url = "test" description= "test" type = "article" nol={6}/> 
+                <Blocks title = "Article Title" url = "test" description= "test" type = "article" nol={3} /> 
+                <Blocks title = "Article Title" url = "test" description= "test" type = "article" nol={2}/> 
+                <Blocks title = "Article Title" url = "test" description= "test" type = "article" nol={5}/> 
+                <Blocks title = "Article Title" url = "test" description= "test" type = "article" nol={4}/> 
             </SafeAreaView>
         </ScrollView>
     </View>

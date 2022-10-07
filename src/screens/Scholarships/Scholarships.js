@@ -26,7 +26,7 @@ const navigation = useNavigation();
        bounces={false}
        contentContainerStyle = {{height:1200}}>
             <SafeAreaView style={styles.container}>
-                <Blocks title = "Article Title" url = "test" description= "test"/> 
+                <Blocks title = "Upcoming Scholarships" url = "test" description= "test" nol = {10}/> 
             </SafeAreaView>
         </ScrollView>
     </View>

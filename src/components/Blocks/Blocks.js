@@ -29,7 +29,7 @@ const styles = StyleSheet.create
       marginTop:'15%',
         backgroundColor:'#fff',
         width:'85%',
-        height:'85%',
+        height:'65%',
         borderRadius:'18%',
     },
     container_article:{

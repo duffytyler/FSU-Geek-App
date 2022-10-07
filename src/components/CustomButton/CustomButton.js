@@ -20,6 +20,10 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         
     },
+    container_MENU:
+    {
+        marginBottom:5,   
+    },
     container_PRIMARY:
     {
         marginTop:15,
@@ -27,9 +31,21 @@ const styles = StyleSheet.create({
     },
     container_TERTIARY:
     {
+        width:'65%',
         marginBottom: 5
     },
+    container_LOGOUT:
+    {
+        marginTop:60,
+
+    },
     text:{},
+    text_MENU:
+    {
+        fontFamily:'baskvill',
+        fontSize:29,
+        color:'#FAFAFA',
+    },
     text_PRIMARY:{
         fontFamily:'MontserratB',
         color:"white",
@@ -38,6 +54,13 @@ const styles = StyleSheet.create({
     text_TERTIARY:{
         color:"white",
         textDecorationLine:"underline",
+    },
+    text_LOGOUT:
+    {
+        color:'white',
+        fontSize:24,
+        fontFamily:'imprintMTS',
+        textDecorationLine:'underline',
     }
 });
 export default CustomButton

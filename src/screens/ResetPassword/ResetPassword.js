@@ -15,7 +15,7 @@ const ResetPassword = () => {
       try
       {
         await Auth.forgotPasswordSubmit(data.username ,data.ccode, data.password);
-        navigation.navigate('Login');
+        navigation.navigate('SignIn',{screen:'Login'});
       }
       catch(e)
       {
@@ -24,7 +24,7 @@ const ResetPassword = () => {
       }
       const backToLogin = () => {
         console.warn("Go back to login");
-        navigation.navigate('Login');
+        navigation.navigate('SignIn',{screen:'Login'});
         
       }
     return (

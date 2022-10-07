@@ -19,7 +19,7 @@ const ConfirmCode = () => {
   const onSubmit = async data => {
     try{
       await Auth.confirmSignUp(data.username, data.ccode);
-      navigation.navigate('Login');
+      navigation.navigate('SignIn',{screen:'Login'});
     }catch(e)
     {
       Alert.alert("Oops", e.message);
@@ -27,7 +27,7 @@ const ConfirmCode = () => {
   }
     const backToLogin = () => {
       console.warn("Go back to login");
-      navigation.navigate('Login');
+      navigation.navigate('SignIn',{screen:'Login'});
     }
     const onResend = async () => {
       try{

@@ -9,12 +9,17 @@ const News = () => {
     
     const navigation = useNavigation();
     const onSignOut = () => {
-        navigation.navigate('Login');
+        
         Auth.signOut();
         
     }
+    const onMenu = () => 
+    {
+        navigation.navigate('Menu');
+    }
     return(
     //go to Blocks in components to edit Blocks formatting
+    //scrollview height still needs to be fixed
    <ImageBackground source= {Background} resizeMode = "cover" style = {{width:"100%", height:"100%"}}>
     <View style={{flex:1}}>
        <ScrollView showsVerticalScrollIndicator={false} 
@@ -28,7 +33,7 @@ const News = () => {
                 <Blocks title = "Article Title" url = "test" description= "test" type = "article"/> 
                 <Blocks title = "Article Title" url = "test" description= "test" type = "article"/> 
                 <CustomButton type = "TERTIARY" onPress={onSignOut} text = "Sign out" />
-                <CustomButton type = "TERTIARY" onPress={onSignOut} text = "Sign out" />
+                <CustomButton type = "TERTIARY" onPress={onMenu} text = "Menu" />
             </SafeAreaView>
         </ScrollView>
     </View>

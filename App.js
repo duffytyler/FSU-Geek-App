@@ -23,7 +23,8 @@ const App = () => {
   let [fontsLoaded] = useFonts({
     'imprintMTS': require('./assets/fonts/Imprint_MT_Shadow.ttf'),
     'MontserratM': require('./assets/fonts/Montserrat-Medium.ttf'),
-    'MontserratB': require('./assets/fonts/Montserrat-Bold.ttf')
+    'MontserratB': require('./assets/fonts/Montserrat-Bold.ttf'),
+    'baskvill': require('./assets/fonts/BASKVILL.ttf'),
   });
   if(!fontsLoaded){
     return (<AppLoading/>);

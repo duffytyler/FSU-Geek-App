@@ -14,7 +14,7 @@ const ForgotPassword = () => {
     const onSubmit = async data => {
       try{
         await Auth.forgotPassword(data.username);
-        navigation.navigate('ResetPassword');
+        navigation.navigate('SignIn',{screen:'ResetPassword'});
       }catch(e)
       {
         Alert.alert("Oops", e.message);
@@ -22,7 +22,7 @@ const ForgotPassword = () => {
     }
       const backToLogin = () => {
         console.warn("Go back to login");
-        navigation.navigate('Login');
+        navigation.navigate('SignIn',{screen:'Login'});
       }
     return (
     <ImageBackground source= {Background} resizeMode = "cover" style = {{width:"100%", height:"100%"}}>

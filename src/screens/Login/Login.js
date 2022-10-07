@@ -28,9 +28,6 @@ const Login = () => {
    try{
     const response = await Auth.signIn(data.username, data.password);
     console.log(response);
-    //console.warn("Sign in");
-    //validate user
-    //navigation.navigate('News');
    } catch(e)
    {
       Alert.alert('Invalid Email and/or Password!', e.message);
@@ -40,14 +37,14 @@ const Login = () => {
 
   const onForgot = () => {
     console.warn("Forgot password");
-    navigation.navigate('ForgotPassword');
+    navigation.navigate('SignIn',{screen:'ForgotPassword'});
   };
 
   const onNewAcc = () => {
     console.warn("Sign up");
-    navigation.navigate('CreateAccount');
+    navigation.navigate('SignIn',{screen:'CreateAccount'});
   };
-
+  
   return(
     <ImageBackground source= {Background} resizeMode = "cover" style = {{width:"100%", height:"100%"}}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -78,6 +75,7 @@ const Login = () => {
    
   )
 }
+
 const styles = StyleSheet.create({
   container:{
     flex:1,

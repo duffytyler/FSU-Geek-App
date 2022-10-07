@@ -25,14 +25,14 @@ const CreateAccount = () => {
           attributes: {email, given_name, family_name}
         }
       );
-      navigation.navigate('ConfirmationCode', {email});
+      navigation.navigate('SignIn',{screen:'ConfirmationCode'}, {email});
     }catch(e)
     {
       Alert.alert('Oops', e.message);
     }
   }
   const backToLogin = () => {
-    navigation.navigate('Login');
+    navigation.navigate('SignIn',{screen:'Login'});
   }
   const onTOS = () => {
     console.warn("TOS");

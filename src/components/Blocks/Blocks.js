@@ -2,12 +2,12 @@ import { View, Text, StyleSheet, Image, Dimensions } from 'react-native'
 import React from 'react'
 import Test from '../../../assets/images/testnews.jpeg'
 import Titles from '../Titles/Titles'
-const Blocks = ({title, url, description}) => {
+const Blocks = ({title, url, description, type}) => {
   return (
-    <View style= {styles.container}>
+    <View style={[styles.container, styles[`container_${type}`]]}>
       <Image source = {Test} style = {styles.image}></Image>
       <Text style={styles.title}>{title}</Text>
-      <Text style={styles.description} numberOfLines = {5}>Topic of some news article taken from somewhere. 
+      <Text style={styles.description} numberOfLines = {6}>Topic of some news article taken from somewhere. 
       Topic of some news article taken from somewhere. 
       Topic of some news article taken from somewhere. 
       Topic of some news article taken from somewhere.
@@ -24,7 +24,15 @@ const Blocks = ({title, url, description}) => {
 
 const styles = StyleSheet.create
 ({
-    container:{
+    container:
+    {
+      marginTop:'15%',
+        backgroundColor:'#fff',
+        width:'85%',
+        height:'85%',
+        borderRadius:'18%',
+    },
+    container_article:{
         marginTop:'15%',
         backgroundColor:'#fff',
         width:'85%',

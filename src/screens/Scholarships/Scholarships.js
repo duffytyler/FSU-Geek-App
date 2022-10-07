@@ -5,9 +5,8 @@ import CustomButton from '../../components/CustomButton/CustomButton'
 import Background from '../../../assets/images/newsbg.jpg';
 import { Auth } from 'aws-amplify';
 import Blocks from '../../components/Blocks/Blocks'
-const News = () => {
-    
-    const navigation = useNavigation();
+const Scholarships = () => {
+const navigation = useNavigation();
     const onSignOut = () => {
         navigation.navigate('Login');
         Auth.signOut();
@@ -22,11 +21,7 @@ const News = () => {
        bounces={false}
        contentContainerStyle = {{height:2600}}>
             <SafeAreaView style={styles.container}>
-                <Blocks title = "Article Title" url = "test" description= "test" type = "article"/> 
-                <Blocks title = "Article Title" url = "test" description= "test" type = "article" /> 
-                <Blocks title = "Article Title" url = "test" description= "test" type = "article"/> 
-                <Blocks title = "Article Title" url = "test" description= "test" type = "article"/> 
-                <Blocks title = "Article Title" url = "test" description= "test" type = "article"/> 
+                <Blocks title = "Article Title" url = "test" description= "test"/> 
                 <CustomButton type = "TERTIARY" onPress={onSignOut} text = "Sign out" />
                 <CustomButton type = "TERTIARY" onPress={onSignOut} text = "Sign out" />
             </SafeAreaView>
@@ -46,4 +41,4 @@ const styles = StyleSheet.create({
     
 })
 
-export default News
+export default Scholarships

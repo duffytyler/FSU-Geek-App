@@ -2,6 +2,7 @@
 
 Installing Expo:
     sudo npm install --global expo-cli 
+    
         -This will install it globally instead of having to do it in each directory
 
 Installing Dependencies:

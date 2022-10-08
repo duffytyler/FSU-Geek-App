@@ -5,14 +5,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useFonts } from 'expo-font';
 import AppLoading from "expo-app-loading";
-import Menu from './src/screens/Menu';
-import Login from './src/screens/Login/Login';
-import CreateAccount from './src/screens/CreateAccount/CreateAccount';
-import Career from './src/screens/Career';
-import Advising from './src/screens/Advising';
-import Scholarships from './src/screens/Scholarships';
-import AMC from './src/screens/AMC';
-import Discord from './src/screens/Discord';
 import Navigation from './src/navigation/index';
 import { Amplify } from 'aws-amplify'
 import awsconfig from './src/aws-exports'

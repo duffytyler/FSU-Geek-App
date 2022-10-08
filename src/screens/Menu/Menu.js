@@ -22,12 +22,14 @@ const Menu = () => {
     const onCareer = () =>
     {
         console.warn('Career pressed');
-        // navigation.navigate('Career'); no page atm
+        navigation.navigate('Pages', {screen:'Career',
+    initial:false});
     }
     const onAdvising = () =>
     {
         console.warn('Advising pressed');
-        // navigation.navigate('Advising'); no page atm
+        navigation.navigate('Pages', {screen:'Advising',
+    initial:false});
     }
     const onScholarships = () =>
     {
@@ -38,12 +40,15 @@ const Menu = () => {
     const onAMC = () =>
     {
         console.warn('AMC pressed');
-      //   navigation.navigate('AMC'); no page atm
+        navigation.navigate('Pages', {screen:'ACM',
+    initial:false});
     }
     const onDiscord = () =>
     {
         console.warn('Discord pressed');
-       // navigation.navigate('Discord'); no page atm
+        console.warn('AMC pressed');
+        navigation.navigate('Pages', {screen:'Discord',
+    initial:false});
     }
   return (
     <ImageBackground source= {MenuBackground} resizeMode = "cover" style = {{width:"100%", height:"100%"}}>
@@ -52,11 +57,11 @@ const Menu = () => {
     </Pressable>
     <View style={styles.container}>
        <CustomButton type = "MENU" onPress={onNews} text = "Home" />
+       <CustomButton type = "MENU" onPress={onDiscord} text = "Discord" />
        <CustomButton type = "MENU" onPress={onCareer} text = "Career Info" />
        <CustomButton type = "MENU" onPress={onAdvising} text = "Advising Help" />
        <CustomButton type = "MENU" onPress={onScholarships} text = "STEM Scholarships" />
        <CustomButton type = "MENU" onPress={onAMC} text = "AMC Programming" />
-       <CustomButton type = "MENU" onPress={onDiscord} text = "Discord / Club Meetings" />
        <CustomButton type = "LOGOUT" onPress={onSignOut} text = "LOG OUT" />
     </View>
     </ImageBackground>

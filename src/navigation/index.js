@@ -8,12 +8,12 @@ import ForgotPassword from '../screens/ForgotPassword/ForgotPassword';
 import ResetPassword from '../screens/ResetPassword/ResetPassword';
 import ConfirmationCode from '../screens/ConfirmCode/ConfirmCode';
 import News from '../screens/News/News';
-import Career from '../screens/Career';
-import Advising from '../screens/Advising';
+import Career from '../screens/Career/Career';
+import Advising from '../screens/Advising/Advising';
 import Scholarships from '../screens/Scholarships/Scholarships';
 import Menu from '../screens/Menu/Menu';
-import AMC from '../screens/AMC';
-import Discord from '../screens/Discord'; 
+import ACM from '../screens/ACM/ACM';
+import Discord from '../screens/Discord/Discord'; 
 import '../../globalStyles';
 import { setGlobalStyles } from 'react-native-floating-label-input';
 import { Auth, Hub } from 'aws-amplify';
@@ -63,7 +63,10 @@ const Navigation = ({navigation}) => {
     <Screens.Navigator screenOptions={{headerShown:false}}>
 
       <Screens.Screen name ="Scholarships" component={Scholarships}/>
-      
+      <Screens.Screen name ="Career" component={Career} />    
+      <Screens.Screen name ="Advising" component={Advising} />
+      <Screens.Screen name ="ACM" component={ACM} />
+      <Screens.Screen name ="Discord" component={Discord} />
     </Screens.Navigator>
     );
   }

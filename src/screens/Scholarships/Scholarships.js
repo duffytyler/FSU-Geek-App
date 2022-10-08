@@ -5,6 +5,7 @@ import CustomButton from '../../components/CustomButton/CustomButton'
 import Background from '../../../assets/images/newsbg.jpg';
 import { Auth } from 'aws-amplify';
 import Blocks from '../../components/Blocks/Blocks'
+import ScholarshipImage from '../../../assets/images/scholarship.jpg'
 const Scholarships = () => {
 const navigation = useNavigation();
     const onSignOut = () => {
@@ -21,14 +22,10 @@ const navigation = useNavigation();
     //scrollview height still needs to be fixed
    <ImageBackground source= {Background} resizeMode = "cover" style = {{width:"100%", height:"100%"}}>
     <View style={{flex:1}}>
-       <ScrollView showsVerticalScrollIndicator={false} 
-       automaticallyAdjustContentInsets={false}
-       bounces={false}
-       contentContainerStyle = {{height:1200}}>
             <SafeAreaView style={styles.container}>
-                <Blocks title = "Upcoming Scholarships" url = "test" description= "test" nol = {10}/> 
+                <Blocks title = "Scholarships" url = "test" image={ScholarshipImage} numberoflines={6}
+                description="This is random text" /> 
             </SafeAreaView>
-        </ScrollView>
     </View>
     </ImageBackground>
     )

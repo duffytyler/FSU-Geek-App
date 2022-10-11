@@ -19,7 +19,7 @@ const styles = StyleSheet.create
         backgroundColor:'#fff',
         width:'85%',
         height:'92%',
-        borderRadius:'18%',
+        borderRadius:15,
         marginBottom:'6%'
     },
     container_article:{
@@ -37,8 +37,8 @@ const styles = StyleSheet.create
     image:{
       width:'100%',
       height:'35%',
-      borderTopLeftRadius:'18%',
-      borderTopRightRadius:'18%',
+      borderTopLeftRadius:15,
+      borderTopRightRadius:15,
     },
     image_info:
     {

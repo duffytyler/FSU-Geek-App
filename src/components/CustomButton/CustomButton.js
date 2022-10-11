@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     text_PRIMARY:{
         fontFamily:'MontserratB',
         color:"white",
-        fontSize:"20"
+        fontSize:20,
     },
     text_TERTIARY:{
         color:"white",

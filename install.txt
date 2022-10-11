@@ -6,17 +6,23 @@ Installing Expo:
         -This will install it globally instead of having to do it in each directory
 
 Installing Dependencies:
+    npm --force install * MAY NOT NEED FORCE *
+
+    npm i grpahql@14.0.0
+
     npm i react-native-floating-label-input
         -This is needed for input boxes
 
     *MAY NEED if above is causing errors*
-    npm i react-native-reanimated@1.13.2
+    NOT NEEDE AS OF NOW: npm i react-native-reanimated@1.13.2
 
+    
     Please tell me if there is other dependencies causing errors!!!
 
 Installing AWS Amplify:
-    npm install -g @aws-amplify/cli
+    npm install -g @aws-amplify/cli * IF THIS CAUSES ERROR IT IS ALREADY INSTALLED * 
     npm install aws-amplify aws-amplify-react-native amazon-cognito-identity-js @react-native-community/netinfo @react-native-async-storage/async-storage @react-native-picker/picker
+
     amplify configure
     *For step above, select all defaults unless you are using something other than VSCode*
     *Cont. For last question select Y*

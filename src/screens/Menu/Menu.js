@@ -37,9 +37,9 @@ const Menu = () => {
         navigation.navigate('Pages', {screen:'Scholarships',
     initial:false});
     }
-    const onAMC = () =>
+    const onACM = () =>
     {
-        console.warn('AMC pressed');
+        console.warn('ACM pressed');
         navigation.navigate('Pages', {screen:'ACM',
     initial:false});
     }
@@ -61,7 +61,7 @@ const Menu = () => {
        <CustomButton type = "MENU" onPress={onCareer} text = "Career Info" />
        <CustomButton type = "MENU" onPress={onAdvising} text = "Advising Help" />
        <CustomButton type = "MENU" onPress={onScholarships} text = "STEM Scholarships" />
-       <CustomButton type = "MENU" onPress={onAMC} text = "AMC Programming" />
+       <CustomButton type = "MENU" onPress={onACM} text = "ACM Programming" />
        <CustomButton type = "LOGOUT" onPress={onSignOut} text = "LOG OUT" />
     </View>
     </ImageBackground>

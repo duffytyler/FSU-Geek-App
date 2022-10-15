@@ -27,7 +27,7 @@ const navigation = useNavigation();
        <ScrollView showsVerticalScrollIndicator={false} 
        automaticallyAdjustContentInsets={false}
        bounces={false}
-       contentContainerStyle = {{height:1500}}>
+       contentContainerStyle = {{flexGrow:1}}>
             <SafeAreaView style={styles.container}>
                 <Blocks title = "Software Engineer" url = "test" image={Coding}type="info" nol={6} 
                 description= "A software engineer is a person who analyzes the problem statement and designs, maintain, test, and evaluate computer software using software engineer principles." />

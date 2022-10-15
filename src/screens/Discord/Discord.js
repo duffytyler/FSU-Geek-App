@@ -22,10 +22,16 @@ const navigation = useNavigation();
     //scrollview height still needs to be fixed
    <ImageBackground source= {Background} resizeMode = "cover" style = {{width:"100%", height:"100%"}}>
     <View style={{flex:1}}>
+    <ScrollView showsVerticalScrollIndicator={false} 
+       automaticallyAdjustContentInsets={false}
+       bounces={false}
+       contentContainerStyle = {{flexGrow:1}}>
             <SafeAreaView style={styles.container}>
                 <Blocks title = "Discord" url = "test" image={DiscordLogo} numberoflines={6}
-                description="Going to try and implement the idea I had, tbd." /> 
+                description="Going to try and implement the idea I had, tbd.
+                " /> 
             </SafeAreaView>
+    </ScrollView>
     </View>
     </ImageBackground>
     )

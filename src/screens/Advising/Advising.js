@@ -22,10 +22,15 @@ const navigation = useNavigation();
     //scrollview height still needs to be fixed
    <ImageBackground source= {Background} resizeMode = "cover" style = {{width:"100%", height:"100%"}}>
     <View style={{flex:1}}>
+    <ScrollView showsVerticalScrollIndicator={false} 
+       automaticallyAdjustContentInsets={false}
+       bounces={false}
+       contentContainerStyle = {{flexGrow:1}}>
             <SafeAreaView style={styles.container}>
                 <Blocks title = "Advising Help" url = "test" image={AdvisingImage} numberoflines={6} 
                  description="Brief description about advising at FSU and takes the user to the advising page" /> 
             </SafeAreaView>
+    </ScrollView>
     </View>
     </ImageBackground>
     )

@@ -1,12 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { View, StyleSheet, ImageBackground, ScrollView, StatusBar, SafeAreaView, Dimensions, Text} from 'react-native';
-import CustomButton from '../../components/CustomButton/CustomButton'
+import { View, StyleSheet, ImageBackground, ScrollView, SafeAreaView, Text} from 'react-native';
 import Background from '../../../assets/images/newsbg.jpg';
-import { Auth } from 'aws-amplify';
 import Blocks from '../../components/Blocks/Blocks'
-import TitleImage from '../../../assets/images/testnews.jpeg'
-import { responsePathAsArray } from 'graphql';
 const News = () => {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)

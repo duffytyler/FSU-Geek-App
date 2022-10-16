@@ -27,7 +27,7 @@ const navigation = useNavigation();
        bounces={false}
        contentContainerStyle = {{flexGrow:1}}>
             <SafeAreaView style={styles.container}>
-                <Blocks title = "Discord" url = "test" image={DiscordLogo} numberoflines={6}
+                <Blocks title = "Discord" url = "test" type={info} image={DiscordLogo} numberoflines={6}
                 description="Going to try and implement the idea I had, tbd.
                 " /> 
             </SafeAreaView>

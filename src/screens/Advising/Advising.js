@@ -27,7 +27,7 @@ const navigation = useNavigation();
        bounces={false}
        contentContainerStyle = {{flexGrow:1}}>
             <SafeAreaView style={styles.container}>
-                <Blocks title = "Advising Help" url = "test" image={AdvisingImage} numberoflines={6} 
+                <Blocks title = "Advising Help" type = "large" url = "test" image={AdvisingImage} numberoflines={6} 
                  description="Brief description about advising at FSU and takes the user to the advising page" /> 
             </SafeAreaView>
     </ScrollView>

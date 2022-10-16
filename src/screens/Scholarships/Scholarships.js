@@ -27,7 +27,7 @@ const navigation = useNavigation();
        bounces={false}
        contentContainerStyle = {{flexGrow:1}}>
             <SafeAreaView style={styles.container}>
-                <Blocks title = "Scholarships" url = "test" image={ScholarshipImage} numberoflines={6}
+                <Blocks title = "Scholarships" type="large" url = "test" image={ScholarshipImage} numberoflines={6}
                 description="This is random text" /> 
             </SafeAreaView>
     </ScrollView>

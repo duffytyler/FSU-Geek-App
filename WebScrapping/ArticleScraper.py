@@ -1,6 +1,7 @@
 import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from webdriver_manager.chrome import ChromeDriverManager
 import json
 
 print(os.getcwd())
@@ -19,7 +20,7 @@ venturebeattitle_array = []
 venturebeatimg_array = []
 
 # Google Chrome is the default search engine
-browser = webdriver.Chrome()
+browser = webdriver.Chrome(ChromeDriverManager().install())
 
 # Opens the url and waits for it to load
 def webpage(x):

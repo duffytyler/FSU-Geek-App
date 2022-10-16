@@ -8,7 +8,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web"
   },
-  "proxy": "http://10.0.0.132:8000",
+  "proxy": "http://10.0.0.231:8000",
   "dependencies": {
     "@aws-sdk/eventstream-codec": "^3.178.0",
     "@expo/webpack-config": "^0.17.0",

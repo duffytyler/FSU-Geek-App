@@ -1,22 +1,11 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { View, StyleSheet, ImageBackground, ScrollView, StatusBar, SafeAreaView, Dimensions} from 'react-native';
-import CustomButton from '../../components/CustomButton/CustomButton'
+import { View, StyleSheet, ImageBackground, ScrollView, StatusBar, SafeAreaView} from 'react-native';
 import Background from '../../../assets/images/newsbg.jpg';
-import { Auth } from 'aws-amplify';
 import Blocks from '../../components/Blocks/Blocks'
 import ScholarshipImage from '../../../assets/images/scholarship.jpg'
 const Scholarships = () => {
 const navigation = useNavigation();
-    const onSignOut = () => {
-        navigation.navigate('SignIn',{screen:'Login'});
-        Auth.signOut();
-        
-    }
-    const onMenu = () =>
-    {
-        navigation.navigate('Menu');
-    }
     return(
     //go to Blocks in components to edit Blocks formatting
     //scrollview height still needs to be fixed
@@ -27,7 +16,7 @@ const navigation = useNavigation();
        bounces={false}
        contentContainerStyle = {{flexGrow:1}}>
             <SafeAreaView style={styles.container}>
-                <Blocks title = "Scholarships" type="large" url = "test" image={ScholarshipImage} numberoflines={6}
+                <Blocks title = "Scholarships" type="large" url = "https://fsu.academicworks.com/" image={ScholarshipImage} 
                 description="This is random text" /> 
             </SafeAreaView>
     </ScrollView>

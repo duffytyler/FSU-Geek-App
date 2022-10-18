@@ -53,11 +53,11 @@ const Menu = () => {
        <CustomButton type = "MENU" onPress={onHome} text = "Home" />
        <CustomButton type = "MENU" onPress={onDiscord} text = "Discord" />
        <CustomButton type = "MENU" onPress={onNews} text = "Tech News" />
-       <CustomButton type = "MENU" onPress={onCounseling} text = "Counseling" />
        <CustomButton type = "MENU" onPress={onCareer} text = "Career Info" />
        <CustomButton type = "MENU" onPress={onAdvising} text = "Advising Help" />
-       <CustomButton type = "MENU" onPress={onScholarships} text = "STEM Scholarships" />
+       <CustomButton type = "MENU" onPress={onCounseling} text = "FSU Counseling" />
        <CustomButton type = "MENU" onPress={onACM} text = "ACM Programming" />
+       <CustomButton type = "MENU" onPress={onScholarships} text = "STEM Scholarships" />
        <CustomButton type = "LOGOUT" onPress={onSignOut} text = "LOG OUT" />
     </View>
     </ImageBackground>

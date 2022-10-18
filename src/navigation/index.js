@@ -15,10 +15,11 @@ import Menu from '../screens/Menu/Menu';
 import ACM from '../screens/ACM/ACM';
 import Discord from '../screens/Discord/Discord'; 
 import Counseling from '../screens/Counseling/Counseling';
+import HomePage from '../screens/HomePage/HomePage';
 import '../../globalStyles';
 import { setGlobalStyles } from 'react-native-floating-label-input';
 import { Auth, Hub } from 'aws-amplify';
-import MenuButton from '../../assets/images/3.png'
+import MenuButton from '../../assets/images/Navigation_Button.png'
 
 const Stack = createNativeStackNavigator();
 const Screens = createNativeStackNavigator();
@@ -69,6 +70,7 @@ const Navigation = ({navigation}) => {
       <Screens.Screen name ="ACM" component={ACM} />
       <Screens.Screen name ="Discord" component={Discord} />
       <Screens.Screen name ="Counseling" component={Counseling}/>
+      <Screens.Screen name ="News" component={News} />
     </Screens.Navigator>
     );
   }
@@ -91,7 +93,7 @@ const Navigation = ({navigation}) => {
         <Stack.Navigator>
           {user ? (
            <Stack.Group>
-            <Stack.Screen name="News" component={News} 
+            <Stack.Screen name="HomePage" component={HomePage} 
             options= {({ navigation }) => ({
               headerBackVisible:false,
               title:'FSU GEEK',
@@ -102,7 +104,7 @@ const Navigation = ({navigation}) => {
             headerRight: () =>(
             //need to find a way to go to Menu on press
                <Pressable onPress={() => navigation.navigate('Menu')}>
-                  <Image source={MenuButton} style={{height:30, width:30, marginBottom:6}} />
+                  <Image source={MenuButton} style={{height:30,width:30}} />
                </Pressable>
             ),
             headerTitleStyle:
@@ -134,7 +136,7 @@ const Navigation = ({navigation}) => {
             headerRight: () =>(
             //need to find a way to go to Menu on press
                <Pressable onPress={() => navigation.navigate('Menu')}>
-                  <Image source={MenuButton} style={{height:30, width:30,marginBottom:6}} />
+                  <Image source={MenuButton} style={{height:30, width:30}} />
                </Pressable>
             ),
             headerTitleStyle:

@@ -4,18 +4,18 @@ import { useNavigation } from '@react-navigation/native';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import MenuBackground from '../../../assets/images/MenuBackground.jpg';
 import {Auth} from 'aws-amplify';
-import MenuButton from '../../../assets/images/3.png'
 const Menu = () => {
     const navigation = useNavigation();
     const onNews = () => {
-        navigation.navigate('News');
+        navigation.navigate('Pages', {screen:'News',
+    initial:false});
     };
       const onSignOut = () => {
         Auth.signOut();
     }
-    const onMenu = () =>
+    const onHome = () =>
     {
-        navigation.navigate('Menu');
+        navigation.navigate('HomePage');
     }
     const onCareer = () =>
     {
@@ -50,8 +50,9 @@ const Menu = () => {
   return (
     <ImageBackground source= {MenuBackground} resizeMode = "cover" style = {{width:"100%", height:"100%"}}>
     <View style={styles.container}>
-       <CustomButton type = "MENU" onPress={onNews} text = "Home" />
+       <CustomButton type = "MENU" onPress={onHome} text = "Home" />
        <CustomButton type = "MENU" onPress={onDiscord} text = "Discord" />
+       <CustomButton type = "MENU" onPress={onNews} text = "Tech News" />
        <CustomButton type = "MENU" onPress={onCounseling} text = "Counseling" />
        <CustomButton type = "MENU" onPress={onCareer} text = "Career Info" />
        <CustomButton type = "MENU" onPress={onAdvising} text = "Advising Help" />

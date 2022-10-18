@@ -16,6 +16,8 @@ const Blocks = ({title, url, description, type, image = {TitleImage} }) => {
     let result = await WebBrowser.openBrowserAsync(url, {
       dismissButtonStyle: 'cancel',
       toolbarColor:'#BEBCBC',
+      controlsColor:'#782F40',
+      enableBarCollapsing:true,
     });
     setResult(result);
   }
@@ -39,6 +41,7 @@ const styles = StyleSheet.create
         marginTop: Dimensions.get('window').height * 0.05,
         width:'85%',
         borderRadius:15,
+        marginBottom: Dimensions.get('window').height * 0.02,
     },
     container_large:
     {

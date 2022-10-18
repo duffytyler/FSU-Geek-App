@@ -6,7 +6,7 @@ import Blocks from '../../components/Blocks/Blocks'
 const News = () => {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
-    const url = 'http://10.0.0.231:8000/Articles'
+    const url = 'http://10.0.0.132:8000/Articles'
     useEffect(()=>{
         fetch(url)
         .then((response) => response.json())

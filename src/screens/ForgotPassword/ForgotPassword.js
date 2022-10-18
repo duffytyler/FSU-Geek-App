@@ -21,7 +21,6 @@ const ForgotPassword = () => {
       }
     }
       const backToLogin = () => {
-        console.warn("Go back to login");
         navigation.navigate('SignIn',{screen:'Login'});
       }
     return (

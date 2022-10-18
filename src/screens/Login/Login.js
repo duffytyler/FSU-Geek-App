@@ -36,12 +36,10 @@ const Login = () => {
   };
 
   const onForgot = () => {
-    console.warn("Forgot password");
     navigation.navigate('SignIn',{screen:'ForgotPassword'});
   };
 
   const onNewAcc = () => {
-    console.warn("Sign up");
     navigation.navigate('SignIn',{screen:'CreateAccount'});
   };
   

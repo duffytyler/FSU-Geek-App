@@ -23,9 +23,7 @@ const ResetPassword = () => {
       }
       }
       const backToLogin = () => {
-        console.warn("Go back to login");
         navigation.navigate('SignIn',{screen:'Login'});
-        
       }
     return (
     <ImageBackground source= {Background} resizeMode = "cover" style = {{width:"100%", height:"100%"}}>

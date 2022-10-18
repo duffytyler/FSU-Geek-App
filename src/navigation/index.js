@@ -14,11 +14,12 @@ import Scholarships from '../screens/Scholarships/Scholarships';
 import Menu from '../screens/Menu/Menu';
 import ACM from '../screens/ACM/ACM';
 import Discord from '../screens/Discord/Discord'; 
+import Counseling from '../screens/Counseling/Counseling';
 import '../../globalStyles';
 import { setGlobalStyles } from 'react-native-floating-label-input';
 import { Auth, Hub } from 'aws-amplify';
-import MenuButton from '../../assets/images/Navigation_Button.png'
-import { screensEnabled } from 'react-native-screens';
+import MenuButton from '../../assets/images/3.png'
+
 const Stack = createNativeStackNavigator();
 const Screens = createNativeStackNavigator();
 const Home = createNativeStackNavigator();
@@ -67,6 +68,7 @@ const Navigation = ({navigation}) => {
       <Screens.Screen name ="Advising" component={Advising} />
       <Screens.Screen name ="ACM" component={ACM} />
       <Screens.Screen name ="Discord" component={Discord} />
+      <Screens.Screen name ="Counseling" component={Counseling}/>
     </Screens.Navigator>
     );
   }
@@ -92,15 +94,15 @@ const Navigation = ({navigation}) => {
             <Stack.Screen name="News" component={News} 
             options= {({ navigation }) => ({
               headerBackVisible:false,
-            title:'FSU GEEK',
-            headerStyle:{
+              title:'FSU GEEK',
+              headerStyle:{
               backgroundColor:'#BEBCBC',
               headerShown:true,
             },
             headerRight: () =>(
             //need to find a way to go to Menu on press
                <Pressable onPress={() => navigation.navigate('Menu')}>
-                  <Image source={MenuButton} style={{height:30, width:30 }} />
+                  <Image source={MenuButton} style={{height:30, width:30, marginBottom:6}} />
                </Pressable>
             ),
             headerTitleStyle:
@@ -132,7 +134,7 @@ const Navigation = ({navigation}) => {
             headerRight: () =>(
             //need to find a way to go to Menu on press
                <Pressable onPress={() => navigation.navigate('Menu')}>
-                  <Image source={MenuButton} style={{height:30, width:30 }} />
+                  <Image source={MenuButton} style={{height:30, width:30,marginBottom:6}} />
                </Pressable>
             ),
             headerTitleStyle:

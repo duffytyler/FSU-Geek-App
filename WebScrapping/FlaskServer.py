@@ -33,4 +33,4 @@ def titles():
             ]
 
 if __name__ == "__main__":
-    app.run(host = '10.0.0.231', port=8000, debug=False)
+    app.run(host = '10.0.0.132', port=8000, debug=False)

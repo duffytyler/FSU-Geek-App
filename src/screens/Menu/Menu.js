@@ -1,4 +1,4 @@
-import { View, StyleSheet, ImageBackground, Pressable, Image } from 'react-native'
+import { View, StyleSheet, ImageBackground, ScrollView} from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native';
 import CustomButton from '../../components/CustomButton/CustomButton';
@@ -49,6 +49,9 @@ const Menu = () => {
     }
   return (
     <ImageBackground source= {MenuBackground} resizeMode = "cover" style = {{width:"100%", height:"100%"}}>
+    <View style={{flex:1}}>
+    <ScrollView showsVerticalScrollIndicator={false}
+    contentContainerStyle={{flexGrow:1, justifyContent:'center', alignContent:'center'}}>
     <View style={styles.container}>
        <CustomButton type = "MENU" onPress={onHome} text = "Home" />
        <CustomButton type = "MENU" onPress={onDiscord} text = "Discord" />
@@ -60,6 +63,8 @@ const Menu = () => {
        <CustomButton type = "MENU" onPress={onScholarships} text = "STEM Scholarships" />
        <CustomButton type = "LOGOUT" onPress={onSignOut} text = "LOG OUT" />
     </View>
+    </ScrollView>
+    </View>
     </ImageBackground>
   )
 }
@@ -67,7 +72,6 @@ const styles = StyleSheet.create
 ({
     container:
     {
-        flex:1,
         alignItems:'center',
         justifyContent:'center',
     }

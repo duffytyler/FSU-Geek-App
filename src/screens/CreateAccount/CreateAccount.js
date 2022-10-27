@@ -28,7 +28,7 @@ const CreateAccount = () => {
       navigation.navigate('SignIn',{screen:'ConfirmationCode'}, {email});
     }catch(e)
     {
-      Alert.alert('Oops', e.message);
+      Alert.alert('Something went wrong.', e.message);
     }
   }
   const backToLogin = () => {

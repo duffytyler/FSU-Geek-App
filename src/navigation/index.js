@@ -1,4 +1,4 @@
-import { View, ActivityIndicator, Pressable, Image, Text} from 'react-native'
+import { View, ActivityIndicator, Pressable, Image, Dimensions} from 'react-native'
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React, { useEffect, useState } from 'react';
@@ -16,17 +16,18 @@ import ACM from '../screens/ACM/ACM';
 import Discord from '../screens/Discord/Discord'; 
 import Counseling from '../screens/Counseling/Counseling';
 import HomePage from '../screens/HomePage/HomePage';
+import VerifyCode from '../screens/VerifyCode/VerifyCode';
+import VerifyUser from '../screens/VerifyUser/VerifyUser';
 import '../../globalStyles';
 import { setGlobalStyles } from 'react-native-floating-label-input';
 import { Auth, Hub } from 'aws-amplify';
-import MenuButton from '../../assets/images/Navigation_Button.png'
+import MenuButton from '../../assets/images/circlemenu(1).png'
 
 const Stack = createNativeStackNavigator();
 const Screens = createNativeStackNavigator();
 const Home = createNativeStackNavigator();
 const Navigation = ({navigation}) => {
   const [user, setUser] = useState(undefined);
-
   const checkUser = async () => {
     try {
       const authUser = await Auth.currentAuthenticatedUser({bypassCache: true});
@@ -84,6 +85,8 @@ const Navigation = ({navigation}) => {
             <Home.Screen name="ResetPassword" options={{headerShown: false}} component={ResetPassword} />
             <Home.Screen name="CreateAccount" options={{headerShown: false}} component={CreateAccount} />
             <Home.Screen name="ConfirmationCode" options={{headerShown: false}} component={ConfirmationCode} />
+            <Home.Screen name="VerifyCode" options={{headerShown: false}} component={VerifyCode} />
+            <Home.Screen name="VerifyUser" options={{headerShown: false}} component={VerifyUser} />
     </Home.Navigator>
     );
   }
@@ -104,7 +107,7 @@ const Navigation = ({navigation}) => {
             headerRight: () =>(
             //need to find a way to go to Menu on press
                <Pressable onPress={() => navigation.navigate('Menu')}>
-                  <Image source={MenuButton} style={{height:30,width:30}} />
+                  <Image source={MenuButton} style={{height:36,width:30, marginRight:Dimensions.get('window').width * 0.015}} />
                </Pressable>
             ),
             headerTitleStyle:
@@ -136,7 +139,7 @@ const Navigation = ({navigation}) => {
             headerRight: () =>(
             //need to find a way to go to Menu on press
                <Pressable onPress={() => navigation.navigate('Menu')}>
-                  <Image source={MenuButton} style={{height:30, width:30}} />
+                  <Image source={MenuButton} style={{height:36, width:30, marginRight:Dimensions.get('window').width * 0.015}} />
                </Pressable>
             ),
             headerTitleStyle:

@@ -7,22 +7,22 @@ import Titles from '../../components/Titles/Titles';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { useForm } from 'react-hook-form';
 import { Auth } from 'aws-amplify';
-const ConfirmCode = () => {
+const VerifyCode = () => {
     const route = useRoute();
     const navigation = useNavigation();
     const {control, handleSubmit, watch} = useForm({defaultValues: 
-      {username: route?.params?.username},
-    });
-    const email = watch('username');
-    const EMAIL_REGEX =
-  /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        {username: route?.params?.username},
+      });
+      const email = watch('username');
+      const EMAIL_REGEX =
+    /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   const onSubmit = async data => {
     try{
       await Auth.confirmSignUp(data.username, data.ccode);
       navigation.navigate('SignIn',{screen:'Login'});
     }catch(e)
     {
-      Alert.alert("Something went", e.message);
+      Alert.alert("Something went wrong", e.message);
     }
   }
     const backToLogin = () => {
@@ -70,4 +70,4 @@ const styles = StyleSheet.create({
       },
 })
 
-export default ConfirmCode
+export default VerifyCode

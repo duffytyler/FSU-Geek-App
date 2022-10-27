@@ -7,7 +7,7 @@ import Titles from '../../components/Titles/Titles';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { useForm } from 'react-hook-form';
 import { Auth } from 'aws-amplify';
-const ConfirmCode = () => {
+const VerifyUser = () => {
     const route = useRoute();
     const navigation = useNavigation();
     const {control, handleSubmit, watch} = useForm({defaultValues: 
@@ -18,29 +18,20 @@ const ConfirmCode = () => {
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   const onSubmit = async data => {
     try{
-      await Auth.confirmSignUp(data.username, data.ccode);
-      navigation.navigate('SignIn',{screen:'Login'});
+      await Auth.resendSignUp(data.username);
+      navigation.navigate('SignIn',{screen:'VerifyCode'});
     }catch(e)
     {
-      Alert.alert("Something went", e.message);
+      Alert.alert("Something went wrong", e.message);
     }
   }
     const backToLogin = () => {
       navigation.navigate('SignIn',{screen:'Login'});
     }
-    const onResend = async data => {
-      try{
-        await Auth.resendSignUp(data.username);
-        Alert.alert('Succes', 'Code was resent to your email');
-      }catch(e)
-      {
-        Alert.alert("Something went wrong.", e.message);
-      }
-    }
     return (
     <ImageBackground source= {Background} resizeMode = "cover" style = {{width:"100%", height:"100%"}}>
      <View style= {styles.container}>
-      <Titles text = "Enter Confirmation Code" />
+      <Titles text = "Enter Email" />
       <CustomInput 
       name="username"
       placeholder="EMAIL"
@@ -48,15 +39,8 @@ const ConfirmCode = () => {
       control={control}
       />
 
-      <CustomInput 
-      name="ccode"
-      placeholder="CONFIRMATION CODE"
-      rules ={{required: "Code is required"}}
-      isPassword
-      control={control}
-      />
+    
       <CustomButton onPress={handleSubmit(onSubmit)} text = "SUBMIT"/>
-      <CustomButton onResend={handleSubmit(onResend)} type = "TERTIARY" text = "Didn't receive a code? Resend code" />
       <CustomButton onPress={backToLogin} text = "Back to sign in" type = "TERTIARY" />
     </View>
     </ImageBackground>
@@ -70,4 +54,4 @@ const styles = StyleSheet.create({
       },
 })
 
-export default ConfirmCode
+export default VerifyUser

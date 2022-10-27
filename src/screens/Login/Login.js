@@ -30,11 +30,13 @@ const Login = () => {
     console.log(response);
    } catch(e)
    {
-      Alert.alert('Invalid Email and/or Password!', e.message);
+      Alert.alert('Something went wrong.', e.message);
    }
    setLoading(false);
   };
-
+  const onConfirmCode = () => {
+    navigation.navigate('SignIn', {screen:'VerifyUser'});
+  }
   const onForgot = () => {
     navigation.navigate('SignIn',{screen:'ForgotPassword'});
   };
@@ -66,6 +68,7 @@ const Login = () => {
       />
       <CustomButton onPress={handleSubmit(onSignIn)} text = {loading ? "Loading..." : "SIGN IN"}/>
       <CustomButton type = "TERTIARY" onPress={onForgot} text = "Forgot Password?" />
+      <CustomButton type = "TERTIARY" onPress={onConfirmCode} text = "Unconfirmed user? Go here" />
       <CustomButton type = "TERTIARY" onPress={onNewAcc} text = "Don't have an account? Sign Up" />
     </View>
     </ScrollView>

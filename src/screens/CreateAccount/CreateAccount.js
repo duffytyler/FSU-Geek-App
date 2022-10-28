@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { View,Text,ImageBackground, StyleSheet, Alert, ScrollView} from 'react-native';
+import { View,Text,ImageBackground, StyleSheet, Alert, ScrollView, Dimensions} from 'react-native';
 import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import Background from '../../../assets/images/Home_Screen.jpg';
@@ -7,17 +7,20 @@ import Titles from '../../components/Titles/Titles';
 import { useNavigation} from '@react-navigation/native';
 import { useForm } from 'react-hook-form'
 import { Auth } from 'aws-amplify';
+import Checkbox from 'expo-checkbox';
 const CreateAccount = () => {
   const {control, handleSubmit, watch} = useForm();
   const pwd = watch('password');
   const EMAIL_REGEX =
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-  const [toggleCheckBox, setToggleCheckBox] = useState(false)
+  const [isChecked, setChecked] = useState(false)
   const navigation = useNavigation();
   const onCreateAcc = async data => {
     const {email, username, password,given_name,family_name} = data; 
     try
     {
+      if(isChecked)
+      {
       await Auth.signUp(
         {
           username,
@@ -25,7 +28,13 @@ const CreateAccount = () => {
           attributes: {email, given_name, family_name}
         }
       );
+
       navigation.navigate('SignIn',{screen:'ConfirmationCode'}, {email});
+      }
+      else
+      {
+        Alert.alert('Something went wrong.', 'You must accept \nthe Terms of Service\n in order to continue.')
+      }
     }catch(e)
     {
       Alert.alert('Something went wrong.', e.message);
@@ -86,8 +95,15 @@ const CreateAccount = () => {
       isPassword
       control={control}
       />
-
-      <Text style={{color:'white', paddingTop:15, paddingBottom: 30}}>I accept the{' '} <Text style={styles.link} onPress={onTOS}>Terms of Use</Text></Text>
+      <View style={{flexDirection:'row'}}>
+       <Checkbox
+          style={styles.checkbox}
+          value={isChecked}
+          onValueChange={setChecked}
+          color={isChecked ? '#782F40' : undefined}
+        />
+      <Text style={{color:'white', marginTop:2, paddingBottom: 30}}>I accept the{' '} <Text style={styles.link} onPress={onTOS}>Terms of Use</Text></Text>
+      </View>
       <CustomButton onPress={handleSubmit(onCreateAcc)} text = "CREATE ACCOUNT"/>
       <CustomButton type = "TERTIARY" onPress={backToLogin} text = "Back to sign in"/>
     </View>
@@ -106,6 +122,9 @@ const styles = StyleSheet.create({
     color: 'white',
     textDecorationLine: 'underline',
     paddingBottom: 15,
+  },
+  checkbox:{
+    marginRight:'3%',
   },
 
 

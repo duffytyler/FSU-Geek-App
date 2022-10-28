@@ -64,10 +64,11 @@ const styles = StyleSheet.create
     title:
     {
       paddingTop:'2%',
-      fontFamily:'imprintMTS',
-      fontSize:25,
+      fontFamily:'PoppinsM',
+      fontSize:24,
       paddingLeft:'3%',
       paddingRight:'3%',
+      fontWeight:'bold',
     },
     description:
     {

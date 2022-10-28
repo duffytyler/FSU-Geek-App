@@ -97,6 +97,7 @@ const Navigation = ({navigation}) => {
             <Stack.Screen name="HomePage" component={HomePage} 
             options= {({ navigation }) => ({
               headerBackVisible:false,
+              headerTitleAlign:'center',
               title:'FSU GEEK',
               headerStyle:{
               backgroundColor:'#BEBCBC',
@@ -129,8 +130,9 @@ const Navigation = ({navigation}) => {
           <Stack.Group
             screenOptions= {({ navigation }) => ({
               headerBackVisible:false,
-            title:'FSU GEEK',
-            headerStyle:{
+              title:'FSU GEEK',
+              headerTitleAlign:'center',
+              headerStyle:{
               backgroundColor:'#BEBCBC',
               headerShown:true,
             },

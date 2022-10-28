@@ -25,7 +25,7 @@ const News = () => {
                 automaticallyAdjustContentInsets={false}
                 contentContainerStyle={{flexGrow:1}}>
                    <SafeAreaView style={styles.container}>
-                    {loading ? ( <Text style={{marginTop:'3%', fontFamily:'MontserratB', fontSize:'20', alignSelf:'center',justifyContent:'center', color:'white',}}>Please wait while we load resources.</Text>): (
+                    {loading ? ( <Text style={{marginTop:'3%', fontFamily:'MontserratB', fontSize:20, alignSelf:'center',justifyContent:'center', color:'white',}}>Please wait while we load resources.</Text>): (
                         data.map((Articles)=>(
                             <Blocks key={Articles.id} title = {Articles.titles} url = {Articles.url} image = {{uri:Articles.img}} type = "article"/> 
                     ))

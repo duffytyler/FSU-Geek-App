@@ -102,7 +102,7 @@ const CreateAccount = () => {
           onValueChange={setChecked}
           color={isChecked ? '#782F40' : undefined}
         />
-      <Text style={{color:'white', marginTop:2, paddingBottom: 30}}>I accept the{' '} <Text style={styles.link} onPress={onTOS}>Terms of Use</Text></Text>
+      <Text style={styles.link} onPress={onTOS}>I accept the Terms of Use</Text>
       </View>
       <CustomButton onPress={handleSubmit(onCreateAcc)} text = "CREATE ACCOUNT"/>
       <CustomButton type = "TERTIARY" onPress={backToLogin} text = "Back to sign in"/>
@@ -119,12 +119,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   link:{
+    marginTop:2, 
+    paddingBottom: 30,
+    fontSize:15,
     color: 'white',
     textDecorationLine: 'underline',
-    paddingBottom: 15,
   },
   checkbox:{
-    marginRight:'3%',
+    marginRight:10,
   },
 
 

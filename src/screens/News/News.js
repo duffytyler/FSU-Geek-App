@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { View, StyleSheet, ImageBackground, ScrollView, SafeAreaView, Text} from 'react-native';
+import { View, StyleSheet, ImageBackground, ScrollView, SafeAreaView, Text, Alert} from 'react-native';
 import Background from '../../../assets/images/newsbg.jpg';
 import Blocks from '../../components/Blocks/Blocks'
 const News = () => {
@@ -11,7 +11,7 @@ const News = () => {
         fetch(url)
         .then((response) => response.json())
         .then((json) =>setData(json))
-        .catch((error) => console.error(error))
+        .catch((error) => Alert.alert('Error',"Something went wrong. \nTry again later."))
         .finally(()=> setLoading(false));
     },[])
     const navigation = useNavigation();
@@ -25,7 +25,7 @@ const News = () => {
                 automaticallyAdjustContentInsets={false}
                 contentContainerStyle={{flexGrow:1}}>
                    <SafeAreaView style={styles.container}>
-                    {loading ? ( <Text style={{fontFamily:'MontserratB', fontSize:'30', alignSelf:'center',justifyContent:'center', color:'white',}}>Please wait while we load resources.</Text>): (
+                    {loading ? ( <Text style={{marginTop:'3%', fontFamily:'MontserratB', fontSize:'20', alignSelf:'center',justifyContent:'center', color:'white',}}>Please wait while we load resources.</Text>): (
                         data.map((Articles)=>(
                             <Blocks key={Articles.id} title = {Articles.titles} url = {Articles.url} image = {{uri:Articles.img}} type = "article"/> 
                     ))

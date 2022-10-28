@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         fontSize:30, 
         color:'white',
         alignSelf:'flex-start',
-        paddingLeft: '6%',
+        marginLeft: '7%',
         paddingBottom:25,
       },
 })

@@ -61,7 +61,7 @@ const Menu = () => {
        <CustomButton type = "MENU" onPress={onCounseling} text = "FSU Counseling" />
        <CustomButton type = "MENU" onPress={onACM} text = "ACM Programming" />
        <CustomButton type = "MENU" onPress={onScholarships} text = "STEM Scholarships" />
-       <CustomButton type = "LOGOUT" onPress={onSignOut} text = "LOG OUT" />
+       <CustomButton type = "LOGOUT" onPress={onSignOut} text = "Sign Out" />
     </View>
     </ScrollView>
     </View>

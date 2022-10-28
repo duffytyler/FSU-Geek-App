@@ -19,7 +19,7 @@ const VerifyUser = () => {
   const onSubmit = async data => {
     try{
       await Auth.resendSignUp(data.username);
-      navigation.navigate('SignIn',{screen:'VerifyCode'});
+      navigation.navigate('SignIn',{screen:'ConfirmationCode'});
     }catch(e)
     {
       Alert.alert("Something went wrong", e.message);

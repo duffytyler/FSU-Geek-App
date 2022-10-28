@@ -16,7 +16,6 @@ import ACM from '../screens/ACM/ACM';
 import Discord from '../screens/Discord/Discord'; 
 import Counseling from '../screens/Counseling/Counseling';
 import HomePage from '../screens/HomePage/HomePage';
-import VerifyCode from '../screens/VerifyCode/VerifyCode';
 import VerifyUser from '../screens/VerifyUser/VerifyUser';
 import '../../globalStyles';
 import { setGlobalStyles } from 'react-native-floating-label-input';
@@ -85,7 +84,6 @@ const Navigation = ({navigation}) => {
             <Home.Screen name="ResetPassword" options={{headerShown: false}} component={ResetPassword} />
             <Home.Screen name="CreateAccount" options={{headerShown: false}} component={CreateAccount} />
             <Home.Screen name="ConfirmationCode" options={{headerShown: false}} component={ConfirmationCode} />
-            <Home.Screen name="VerifyCode" options={{headerShown: false}} component={VerifyCode} />
             <Home.Screen name="VerifyUser" options={{headerShown: false}} component={VerifyUser} />
     </Home.Navigator>
     );
@@ -107,7 +105,7 @@ const Navigation = ({navigation}) => {
             headerRight: () =>(
             //need to find a way to go to Menu on press
                <Pressable onPress={() => navigation.navigate('Menu')}>
-                  <Image source={MenuButton} style={{height:36,width:30, marginRight:Dimensions.get('window').width * 0.015}} />
+                  <Image source={MenuButton} style={{height:36,width:30, marginRight:Dimensions.get('window').width * 0.005}} />
                </Pressable>
             ),
             headerTitleStyle:
@@ -139,7 +137,7 @@ const Navigation = ({navigation}) => {
             headerRight: () =>(
             //need to find a way to go to Menu on press
                <Pressable onPress={() => navigation.navigate('Menu')}>
-                  <Image source={MenuButton} style={{height:36, width:30, marginRight:Dimensions.get('window').width * 0.015}} />
+                  <Image source={MenuButton} style={{height:36, width:30, marginRight:Dimensions.get('window').width * 0.005}} />
                </Pressable>
             ),
             headerTitleStyle:

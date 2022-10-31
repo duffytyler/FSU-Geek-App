@@ -4,7 +4,6 @@ import TitleImage from '../../../assets/images/testnews.jpeg'
 import * as WebBrowser from 'expo-web-browser';
 
 const Blocks = ({title, url, description, type, image = {TitleImage} }) => {
-  const { height } = Dimensions.get("window").height; 
   const [result, setResult] = useState(null);
   if(description != null)
   {
@@ -29,7 +28,7 @@ const Blocks = ({title, url, description, type, image = {TitleImage} }) => {
     <Pressable onPress={_goBrowser} style={[styles.container, styles[`container_${type}`]]}>
       <Image source = {image} style={[styles.image, styles[`image_${type}`]]}></Image>
       <View style={[styles.line, styles[`line_${type}`]]}/>
-      <Text style={styles.title} numberOfLines={3}>{title}</Text>
+      <Text style={[styles.title, styles[`title_${type}`]]} numberOfLines={3}>{title}</Text>
       <Text style={[styles.description, styles[`description_${type}`]]}>{description}</Text>
     </Pressable>
     
@@ -70,12 +69,16 @@ const styles = StyleSheet.create
     },
     title:
     {
-      marginTop:Dimensions.get('window').height * 0.02,
+      marginTop:Dimensions.get('window').height * 0.007,
       fontFamily:'PoppinsM',
       fontSize:24,
       paddingLeft:'3%',
       paddingRight:'3%',
       fontWeight:'bold',
+    },
+    title_large:
+    {
+      marginTop:Dimensions.get('window').height * 0.02,
     },
     description:
     {

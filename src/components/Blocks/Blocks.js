@@ -53,7 +53,7 @@ const styles = StyleSheet.create
     },
     image:{
       width:'100%',
-      resizeMode:'contain',
+      resizeMode:'auto',
       height: Dimensions.get('window').height * 0.25,
       borderTopLeftRadius:15,
       borderTopRightRadius:15,
@@ -70,7 +70,7 @@ const styles = StyleSheet.create
     },
     title:
     {
-      marginTop:'2%',
+      marginTop:Dimensions.get('window').height * 0.02,
       fontFamily:'PoppinsM',
       fontSize:24,
       paddingLeft:'3%',

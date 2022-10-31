@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import { View, StyleSheet, ImageBackground, ScrollView, StatusBar, SafeAreaView} from 'react-native';
 import Background from '../../../assets/images/newsbg.jpg';
 import Blocks from '../../components/Blocks/Blocks'
-import AdvisingImage from '../../../assets/images/advising.jpg'
+import AdvisingImage from '../../../assets/images/advising.png'
 const Advising = () => {
 const navigation = useNavigation();
     return(

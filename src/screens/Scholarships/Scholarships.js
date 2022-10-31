@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import { View, StyleSheet, ImageBackground, ScrollView, StatusBar, SafeAreaView} from 'react-native';
 import Background from '../../../assets/images/newsbg.jpg';
 import Blocks from '../../components/Blocks/Blocks'
-import ScholarshipImage from '../../../assets/images/scholarship.jpg'
+import ScholarshipImage from '../../../assets/images/scholarships.png'
 const Scholarships = () => {
 const navigation = useNavigation();
     return(

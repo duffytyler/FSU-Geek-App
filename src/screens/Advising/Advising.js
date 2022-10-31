@@ -17,7 +17,15 @@ const navigation = useNavigation();
        contentContainerStyle = {{flexGrow:1}}>
             <SafeAreaView style={styles.container}>
                 <Blocks title = "Advising Help" type = "large" url = "https://advisingfirst.fsu.edu/" image={AdvisingImage} numberoflines={6} 
-                 description="Brief description about advising at FSU and takes the user to the advising page" /> 
+                 description="Academic advising help is available to all FSU students. The Advising Office
+                 provides students with a vast array of helpful programs, resources, and services.
+                 In addition, the Advising team will help you make the most important decisions
+                 during your academic career, such as choosing the right courses to help keep
+                 you on track for graduation along with much more.
+                 \n
+                 \n
+                 \nNote : Advising for the Tallahassee Campus and the Panama City Campus are different.
+                 in order to see a list of Panama City advisors or book an appointment, please go to : https://pc.fsu.edu/bookings" />
             </SafeAreaView>
     </ScrollView>
     </View>

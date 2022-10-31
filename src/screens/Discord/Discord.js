@@ -20,7 +20,16 @@ const navigation = useNavigation();
                 url = "https://discord.com/invite/DaJzvQD" 
                 type="large" 
                 image={DiscordLogo} 
-                description="Going to try and implement the idea I had, tbd." /> 
+                description="A group of FSU students have created a Discord server for general use. 
+                It is there to bring students together and be a place where students can ask each other
+                questions or request information.
+                \n
+                \n
+                \nDiscord information : Discord is a free communication app that enables you to make text messages,
+                voice calls, and video calls. The app is very versatile and can be used on almost
+                any platform, including Windows, macOS, Linux, iOS, iPadOS, Android, and on
+                web browsers. In the app, users have control over whom they interact with and
+                what their experience on the platform is like." /> 
             </SafeAreaView>
     </ScrollView>
     </View>

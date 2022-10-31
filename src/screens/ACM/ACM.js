@@ -17,7 +17,15 @@ const navigation = useNavigation();
        contentContainerStyle = {{flexGrow:1}}>
             <SafeAreaView style={styles.container}>
                 <Blocks title = "ACM Programming" type="large" url = "https://fsu.acm.org/" image={ACMLogo} numberoflines={6}
-                description="Brief description of the ACM Programming Club at FSU and takes the user to their page" /> 
+                description="FSU’s Association for Computing Machinery- Student Chapter serves all students
+                interested in computing. The main purpose of the organization is to provide
+                academic and social engagement for all member. In order to be considered an
+                Active Member, students will need to attend chapter events during the Fall and
+                Spring semesters. This club is also responsible for the ACM programming contest that
+                takes place once a semester, excluding Summer.
+                \n
+                \n
+                \nNote : FSU Geek is not affiliated with FSU ACM in any regard and do not represent them in any way." /> 
             </SafeAreaView>
     </ScrollView>
     </View>

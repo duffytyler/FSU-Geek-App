@@ -17,7 +17,17 @@ const navigation = useNavigation();
        contentContainerStyle = {{flexGrow:1}}>
             <SafeAreaView style={styles.container}>
                 <Blocks title = "Scholarships" type="large" url = "https://fsu.academicworks.com/" image={ScholarshipImage} 
-                description="This is random text" /> 
+                description="Scholarships are a type of aid that does not need to be paid back. Some of these
+                scholarships are based on demographics, extracurricular activities, and majors, along with a main
+                interest in students GPA.
+                A lot of scholarships pertaining STEM majors can be found in Finding Scholarship For You (FS4U),
+                a tool that provides students with a large selection of scholarships, including
+                scholarships specifically designated for CS students. Once you fill out your information,
+                FS4U will allow you to use that information to look for available scholarships that you fit
+                the requirements for.
+                \n
+                \n
+                \nNote : FSU Geek is not affiliated with FS4U or represent them in any way." /> 
             </SafeAreaView>
     </ScrollView>
     </View>

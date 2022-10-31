@@ -22,7 +22,6 @@
     "aws-amplify": "^4.3.37",
     "aws-amplify-react-native": "^6.0.5",
     "expo": "~46.0.9",
-    "expo-app-loading": "~2.1.0",
     "expo-cli": "^6.0.6",
     "expo-font": "^10.2.1",
     "expo-screen-orientation": "~4.3.0",

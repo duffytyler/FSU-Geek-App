@@ -20,27 +20,27 @@ def titles():
             },
             {
              "id":3,
-             "titles": ArticleScraper.wiredtitle_array[2],
-             "img": ArticleScraper.wiredimg_array[2],
-             "url": ArticleScraper.wiredurl_array[2],
-            },
-            {
-             "id":4,  
              "titles": ArticleScraper.thehackertitle_array[0],
              "img": ArticleScraper.thehackerimg_array[0],
              "url": ArticleScraper.thehackerurl_array[0],
             },
             {
-             "id":5,  
+             "id":4,  
              "titles": ArticleScraper.thehackertitle_array[1],
              "img": ArticleScraper.thehackerimg_array[1],
              "url": ArticleScraper.thehackerurl_array[1],
             },
             {
-             "id":6,
+             "id":5,  
              "titles": ArticleScraper.venturebeattitle_array[0],
              "img": ArticleScraper.venturebeatimg_array[0],
              "url": ArticleScraper.venturebeaturl_array[0],
+            },
+            {
+             "id":6,
+             "titles": ArticleScraper.venturebeattitle_array[1],
+             "img": ArticleScraper.venturebeatimg_array[1],
+             "url": ArticleScraper.venturebeaturl_array[1],
             },
             ]
 

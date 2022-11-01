@@ -14,7 +14,7 @@ const CreateAccount = () => {
   const UPPER_REGEX = /(?=.*[A-Z])/;
   const LOWER_REGEX = /(?=.*[a-z])/;
   const NUMBER_REGEX = /(?=.*[0-9])/;
-  const SPECIAL_REGEX = /(?=.*[@#$%^&+=])/;
+  const SPECIAL_REGEX = /(?=.*[@#$%^&*+=])/;
   const EMAIL_REGEX =
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   const [isChecked, setChecked] = useState(false)

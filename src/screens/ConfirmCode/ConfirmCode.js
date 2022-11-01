@@ -22,7 +22,7 @@ const ConfirmCode = () => {
       navigation.navigate('SignIn',{screen:'Login'});
     }catch(e)
     {
-      Alert.alert("Something went", e.message);
+      Alert.alert("Something went wrong", e.message);
     }
   }
     const backToLogin = () => {

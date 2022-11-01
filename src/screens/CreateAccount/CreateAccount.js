@@ -11,6 +11,10 @@ import Checkbox from 'expo-checkbox';
 const CreateAccount = () => {
   const {control, handleSubmit, watch} = useForm();
   const pwd = watch('password');
+  const UPPER_REGEX = /(?=.*[A-Z])/;
+  const LOWER_REGEX = /(?=.*[a-z])/;
+  const NUMBER_REGEX = /(?=.*[0-9])/;
+  const SPECIAL_REGEX = /(?=.*[@#$%^&+=])/;
   const EMAIL_REGEX =
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   const [isChecked, setChecked] = useState(false)
@@ -70,7 +74,7 @@ const CreateAccount = () => {
       <CustomInput 
       name="username"
       placeholder="EMAIL"
-      rules ={{required: "Email is required", pattern:EMAIL_REGEX}}
+      rules ={{required: "An email is required", pattern:EMAIL_REGEX}}
       control={control}
       />
 
@@ -78,18 +82,29 @@ const CreateAccount = () => {
       name="password"
       placeholder="PASSWORD"
       rules ={{required: "Password is required", minLength: 
-      {value:7, 
-        message:"Password does not meet length requirement (7)"}}}
+      {value:8, 
+        message:"Password does not meet length requirement (8)"},
+      validate:
+      {
+      upper: value => UPPER_REGEX.test(value) ||
+      "Password must contain at least one upper case letter.",
+      lower:
+      value => LOWER_REGEX.test(value) ||
+      "Password must contain at least one lower case letter.",
+      number:
+      value => NUMBER_REGEX.test(value) ||
+      "Password must contain at least one number.",
+      special:
+      value => SPECIAL_REGEX.test(value) ||
+      "Password must contain at least one special character."}
+      }}
       isPassword
       control={control}
       />
-
       <CustomInput 
       name="vpassword"
       placeholder="RE-ENTER PASSWORD"
-      rules ={{required: "Password is required", minLength: 
-      {value:7, 
-        message:"Password does not meet length requirement (7)"},
+      rules ={{required: "Password is required", 
         validate: value => value == pwd  || 'Passwords do not match'
       }}
       isPassword

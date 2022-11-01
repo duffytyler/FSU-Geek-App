@@ -10,6 +10,8 @@ import { useForm } from 'react-hook-form'
 const Login = () => {
   const {height} = useWindowDimensions();
   const navigation = useNavigation();
+  const EMAIL_REGEX =
+  /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   const{
     control,
     handleSubmit,
@@ -55,7 +57,7 @@ const Login = () => {
       <CustomInput 
       name="username"
       placeholder="EMAIL"
-      rules ={{required: "Email is required"}}
+      rules ={{required: "An email is required", pattern:EMAIL_REGEX}}
       control={control}
       />
 

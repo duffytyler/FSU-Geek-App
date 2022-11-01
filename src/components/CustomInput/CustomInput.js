@@ -27,7 +27,7 @@ const CustomInput = ({
                     <Text style={styles.error}>{error.message || 'Error'}</Text>
                     </View>
                  )}
-                <View style={[styles.container, {marginBottom: error ? 2 : 30}, {borderColor: error ? 'red' : '#d4d4d4',}]}>
+                <View style={[styles.container, {marginTop: error ? 2 : 20}, {borderColor: error ? 'red' : '#d4d4d4',}, {borderWidth: error ? 2: 3},]}>
                     <FloatingLabelInput 
                     value = {value} 
                     onChangeText = {onChange}  
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     },
     error:
     {
-        marginLeft:'7%',
+        marginLeft:'8%',
         color:'red', 
     },
 

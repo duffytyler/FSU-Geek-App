@@ -42,8 +42,22 @@ const ResetPassword = () => {
       name="password"
       placeholder="PASSWORD"
       rules ={{required: "Password is required", minLength: 
-      {value:7, 
-        message:"Password does not meet length requirement (7)"}}}
+      {value:8, 
+        message:"Password does not meet length requirement (8)"},
+      validate:
+        {
+        upper: value => UPPER_REGEX.test(value) ||
+        "Password must contain at least one upper case letter.",
+        lower:
+        value => LOWER_REGEX.test(value) ||
+        "Password must contain at least one lower case letter.",
+        number:
+        value => NUMBER_REGEX.test(value) ||
+        "Password must contain at least one number.",
+        special:
+        value => SPECIAL_REGEX.test(value) ||
+        "Password must contain at least one special character."}
+      }}
       isPassword
       control={control}
       />
@@ -51,9 +65,7 @@ const ResetPassword = () => {
      <CustomInput 
       name="vpassword"
       placeholder="RE-ENTER PASSWORD"
-      rules ={{required: "Password is required", minLength: 
-      {value:7, 
-        message:"Password does not meet length requirement (7)"},
+      rules ={{required: "Password is required",
         validate: value => value == pwd  || 'Passwords do not match'
       }}
       isPassword

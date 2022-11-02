@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import { View, StyleSheet, ImageBackground, ScrollView, StatusBar, SafeAreaView} from 'react-native';
 import Background from '../../../assets/images/newsbg.jpg';
 import Blocks from '../../components/Blocks/Blocks'
-import DiscordLogo from '../../../assets/images/discord.png'
+import DiscordLogo from '../../../assets/images/discord.webp'
 const Discord = () => {
 const navigation = useNavigation();
     return(

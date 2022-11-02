@@ -10,6 +10,10 @@ import { Auth } from 'aws-amplify';
 const ResetPassword = () => {
   const {control, handleSubmit, watch} = useForm();
     const navigation = useNavigation();
+    const UPPER_REGEX = /(?=.*[A-Z])/;
+    const LOWER_REGEX = /(?=.*[a-z])/;
+    const NUMBER_REGEX = /(?=.*[0-9])/;
+    const SPECIAL_REGEX = /(?=.*[@#$%^&*+=])/;
     const pwd = watch('password');
     const onSubmit = async data => {
       try
@@ -40,7 +44,7 @@ const ResetPassword = () => {
 
       <CustomInput 
       name="password"
-      placeholder="PASSWORD"
+      placeholder="NEW PASSWORD"
       rules ={{required: "Password is required", minLength: 
       {value:8, 
         message:"Password does not meet length requirement (8)"},

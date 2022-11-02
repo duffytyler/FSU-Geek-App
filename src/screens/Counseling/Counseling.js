@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import { View, StyleSheet, ImageBackground, ScrollView, StatusBar, SafeAreaView} from 'react-native';
 import Background from '../../../assets/images/newsbg.jpg';
 import Blocks from '../../components/Blocks/Blocks'
-import CounselingLogo from '../../../assets/images/counseling-psychological-services-logo.png'
+import CounselingLogo from '../../../assets/images/counseling.png'
 const Counseling = () => {
 const navigation = useNavigation();
     return(
@@ -20,7 +20,11 @@ const navigation = useNavigation();
                 url = "https://counseling.fsu.edu/" 
                 type="large" 
                 image={CounselingLogo} 
-                description="FSU Mental Health and Counseling Services" /> 
+                description="Counseling & Psychological Services is available to currently registered students. 
+                These services are provided through a Zoom call, phone call, or in person. 
+                The office of Counseling & Psychological Services provides individual, group, and couples counseling, crisis intervention, alcohol, as well as other drug assessments, and referrals. 
+                In addition, the office regularly holds workshops and presentations on mental health topics for students. All services are provided by licensed psychologists, mental health counselors, clinical social workers, art therapists, and certified addiction professionals." 
+                /> 
             </SafeAreaView>
     </ScrollView>
     </View>

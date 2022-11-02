@@ -57,6 +57,10 @@ const styles = StyleSheet.create
       borderTopLeftRadius:15,
       borderTopRightRadius:15,
     },
+    image_large:
+    {
+      marginTop:'2%',
+    },
     image_article:
     {
       height: Dimensions.get('window').height * .24,

@@ -25,24 +25,24 @@ def titles():
              "url": ArticleScraper.thehackerurl_array[0],
             },
             {
-             "id":4,  
+             "id":4,
              "titles": ArticleScraper.thehackertitle_array[1],
              "img": ArticleScraper.thehackerimg_array[1],
              "url": ArticleScraper.thehackerurl_array[1],
             },
             {
-             "id":5,  
+             "id":5,
              "titles": ArticleScraper.venturebeattitle_array[0],
              "img": ArticleScraper.venturebeatimg_array[0],
              "url": ArticleScraper.venturebeaturl_array[0],
             },
             {
-             "id":6,
-             "titles": ArticleScraper.venturebeattitle_array[1],
-             "img": ArticleScraper.venturebeatimg_array[1],
-             "url": ArticleScraper.venturebeaturl_array[1],
-            },
+            "id": 6,
+            "titles": ArticleScraper.venturebeattitle_array[1],
+            "img": ArticleScraper.venturebeatimg_array[1],
+            "url": ArticleScraper.venturebeaturl_array[1],
+            }
             ]
 
 if __name__ == "__main__":
-    app.run(host = '10.0.0.231', port=8000, debug=False)
+    app.run(host = '192.168.1.123', port=8000, debug=False)

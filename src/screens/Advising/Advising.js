@@ -24,15 +24,16 @@ const navigation = useNavigation();
                  you on track for graduation along with much more.
                  \n
                  \n
-                 \nNote : Advising for the Tallahassee Campus and the Panama City Campus are different.
-                 in order to see a list of Panama City advisors or book an appointment, please go to : " />
+                 \nNote: Advising for the Tallahassee Campus and the Panama City Campus are different. 
+                 In order to see a list of Tallahassee advisors or book an appointment, please go to: http://advisor.undergrad.fsu.edu/advisors/advisor-display.php " />
 
                  <Blocks title = "FSU:PC - Advising Help" type = "large" url = "https://pc.fsu.edu/bookings" image={AdvisingImage} 
                  description="Academic advising help is available to all FSU students. The Advising Office
                  provides students with a vast array of helpful programs, resources, and services.
                  In addition, the Advising team will help you make the most important decisions
                  during your academic career, such as choosing the right courses to help keep
-                 you on track for graduation along with much more.
+                 you on track for graduation along with much more. The Panama City campus is mostly
+                 for use by Distance Learning students with the ability to offer in-person classes also.
                  \n
                  \n
                  \nNote : Advising for the Tallahassee Campus and the Panama City Campus are different.
